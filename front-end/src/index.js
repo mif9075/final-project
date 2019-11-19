@@ -1,12 +1,31 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux';
+import './index.css';
+import Spinner from './Factory/Spinner/Spinner'
+import store from './redux/store/store';
+import checkTokenAuth from './lib/checkTokenAuth';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+const App = React.lazy(() => import('./App'));
+
+checkTokenAuth(store)
+
+const Application = () => {
+    return(
+
+        <Provider store={store}>
+            <Router>
+                <React.Suspense fallback={<Spinner />}>
+                    <App />
+                </React.Suspense>
+            </Router>
+        </Provider>
+    )
+}
+
+ReactDOM.render(<Application />, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
 // unregister() to register() below. Note this comes with some pitfalls.
