@@ -1,6 +1,8 @@
 import React from 'react';
-import {TextField, MenuItem, FormControl, InputLabel } from '@material-ui/core';
-import { TextValidator, SelectValidator } from 'react-material-ui-form-validator';
+import {TextField } from '@material-ui/core';
+// import {TextField, MenuItem, FormControl, InputLabel } from '@material-ui/core';
+import { TextValidator} from 'react-material-ui-form-validator';
+// import { TextValidator, SelectValidator } from 'react-material-ui-form-validator';
 
 const InputClass = (props) => {
   const { input } = props;
