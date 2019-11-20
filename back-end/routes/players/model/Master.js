@@ -1,11 +1,12 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 const MasterSchema = new mongoose.Schema({
     mlb_id: { type: Number, default: ''},
     mlb_pos : { type: Number, default: ''},
     mlb_team: { type: String, default: ''},
     mlb_team_long: { type: String, default: ''},
+    lahman_id: { type: String, default: ''},
     ottoneu_pos: { type: String, default: ''}
 });
 

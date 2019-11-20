@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
-const Schema = mongoose.Schema;
+// const Schema = mongoose.Schema;
 
 const PeopleSchema = new mongoose.Schema({
     lahman_id:  { type: String, default: ''},
     mlb_id:     { type: Number, default: ''},
-    birthCountry : { type: String, default: ''},
+    birthCountry: { type: String, default: ''},
+    birthState: { type: String, default: ''},
     birthCity:  { type: String, default: ''},
     nameFirst:  { type: String, default: '' },
     nameLast:   { type: String, default: ''},

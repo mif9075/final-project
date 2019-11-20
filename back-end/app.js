@@ -12,6 +12,7 @@ require('dotenv').config();
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users/users');
+var playerRouter = require('./routes/player/player')
 var playersRouter = require('./routes/players/players');
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true })
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/player', playerRouter);
 app.use('/players', playersRouter);
 
 // catch 404 and forward to error handler
