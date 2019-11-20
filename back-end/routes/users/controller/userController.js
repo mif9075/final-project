@@ -4,7 +4,7 @@ module.exports = {
     register: async (req,res) => {
         try {
             let newUser = await authHelper.createUser(req.body);
-            let hashedPassword = await authHelper.hashedPassword(newUser.password);
+            let hashedPassword = await authHelper.hashPassword(newUser.password);
             newUser.password = hashedPassword;
             let savedUser = await newUser.save();
 
@@ -28,7 +28,7 @@ module.exports = {
             if (foundUser === 404) {
                 throw 'User not found, please register';
             }
-            let comparedPassword = await authHelper.comparedPassword(req.body.password, foundUser.password);
+            let comparedPassword = await authHelper.comparePassword(req.body.password, foundUser.password);
             if (comparedPassword === 409) {
                 throw 'Check your email and password';
             }

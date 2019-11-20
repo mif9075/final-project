@@ -31,13 +31,13 @@ const styles = {
       navigation = (
         <>
 
-            <NavLink 
+            {/* <NavLink 
               exact
               to='/create-talk'
               className={[this.props.classes.navLinkStyle, this.props.classes.signupAndSignin].join(' ')}
               activeStyle={{ color: 'white', textDecoration: 'underline white' }}
               > Create Talk
-            </NavLink>
+            </NavLink> */}
 
 
            <NavLink 
@@ -66,17 +66,17 @@ const styles = {
 
           <NavLink 
             exact
-            to='/sign-up'
+            to='/register'
             className={[this.props.classes.navLinkStyle, this.props.classes.signupAndSignin].join(' ')}
             activeStyle={{ color: 'white', textDecoration: 'underline white' }}
-            >Sign up</NavLink>
+            >Register</NavLink>
 
           <NavLink
             exact
-            to='/sign-in'
+            to='/login'
             className={[this.props.classes.navLinkStyle, this.props.classes.signupAndSignin].join(' ')}
             activeStyle={{ color: 'white', textDecoration: 'underline white' }}
-            >Sign in</NavLink>
+            >Login</NavLink>
 
           </>
 
@@ -92,7 +92,7 @@ const styles = {
           to='/'
           className={this.props.classes.navLinkStyle}
           activeStyle={{ color: 'white', textDecoration: 'underline white' }}
-        >Talk that Talk</NavLink>
+        >Welcome to BeisbolDom.Com</NavLink>
   
         <section className={this.props.classes.rightToolbar}>
           {navigation}

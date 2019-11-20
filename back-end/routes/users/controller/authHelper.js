@@ -23,7 +23,7 @@ async function errorHandler(error) {
         errorMessage - 'Email already exist';
     } else if (error.errmsg.includes('username_1')) {
         errorMessage='Username already exist';
-    }
+    } 
     return errorMessage;
 }
 

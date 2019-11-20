@@ -82,30 +82,7 @@ const InputClass = (props) => {
                               onChange={props.handleInputChange}
                             />
         break;     
-    case('select'):
-
-        dynamicInputField = <FormControl style={input.style}>
-                              <InputLabel htmlFor="input-gende" style={{top: '-15px'}}>{props.gender.length > 1 ? '' : 'Choose Your Gender'}</InputLabel>
-                              <SelectValidator
-                                value={props.gender || ''}
-                                onChange={props.handleInputChange}
-                                validators={input.validators}
-                                errorMessages={input.errorMessages}
-                                name={input.name}
-                              >
-                              {
-                                input.genders.map(option => {
-                                  return (
-                                    <MenuItem key={option} value={option}>
-                                      {option}
-                                    </MenuItem>
-                                  )
-                              })}
-                              </SelectValidator>
-                              </FormControl>
-
-
-      break;
+    
     case('multiline'):
                  
       dynamicInputField = <TextField 

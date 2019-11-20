@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var cors = require('cors');
 var app = express();
+var passport = require('passport');
 var mongoose = require('mongoose');
 
 require('dotenv').config();
@@ -19,6 +20,10 @@ mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTop
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
+
+app.use(passport.initialize());
+
+require('./lib/Passport')(passport);
 
 app.use(cors());
 app.use(logger('dev'));
