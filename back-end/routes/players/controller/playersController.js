@@ -12,6 +12,16 @@ module.exports = {
             console.log(error);
             res.status(500).json(error);
         }
+    },
+
+    getCurrentPlayers: async (req, res) => {
+        let currentPlayers = await People.find({})
+
+        
+    },
+
+    getRetiredPlayers: async (req, res) => {
+
     }
 
 }
