@@ -27,8 +27,10 @@ class Player extends Component {
   }
 
   render() {
+    // console.log(this.props)
 
     return(
+        
       <Card className={this.props.classes.card}>
       <CardActionArea>
         <CardMedia
@@ -63,7 +65,7 @@ class Player extends Component {
             >Learn More</Link>
           </Button>
         ) : (
-          <Button size="small" color="primary" onClick={() => this.props.handleUserTalkByID(this.props._id)}>
+          <Button size="small" color="primary" onClick={() => this.props.handleUserPlayerByID(this.props._id)}>
             Delete
           </Button>
         )

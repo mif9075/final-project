@@ -1,13 +1,13 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
-// import ShowAllTalks from '../ShowAllTalks/ShowAllTalks';
+import ShowAllPlayers from '../ShowAllPlayers/ShowAllPlayers';
 
 class Home extends Component {
 
   render() {
     return (
       <div className='App'>
-       {/* {this.props.authUser.isAuthenticated ? <ShowAllTalks user={this.props.authUser.user}/> : <h1>Sign up to join the Talks show!</h1>} */}
+       {this.props.authUser.isAuthenticated ? <ShowAllPlayers user={this.props.authUser.user}/> : <h1>Sign up to join!</h1>}
       </div>
     )
   }

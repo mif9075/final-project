@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux';
 import UserProfileInfo from '../UserProfileInfo/UserProfileInfo';
-// import ShowAllUserTalks from '../ShowAllUserTalks/ShowAllUserTalks';
+// import ShowAllUsers from '../ShowAllUserTalks/ShowAllUserTalks';
 
  class UserProfile extends Component {
   render() {

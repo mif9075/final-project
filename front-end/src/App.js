@@ -12,6 +12,7 @@ const Login = React.lazy(() => import('./Components/Login/Login'))
 const Register = React.lazy(() => import('./Components/Register/Register'))
 const Home = React.lazy(() => import('./Components/Home/Home'))
 const NotFound = React.lazy(() => import('./Components/NotFound/NotFound'))
+const SeePlayer = React.lazy(() => import('./Components/SeePlayer/SeePlayer'))
 const UserProfile = React.lazy(() => import('./Components/UserProfile/UserProfile'))
 
 class App extends Component {
@@ -25,6 +26,7 @@ class App extends Component {
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
 
+                <PrivateRoute exact path="/see-player/:id" component={SeePlayer} />
                 <PrivateRoute exact path="/user-profile" component={UserProfile} />
                 <Route path="" component={NotFound} />
             </Switch>

@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
+var mongoose = require('mongoose');
 // const Schema = mongoose.Schema;
 
-const MasterSchema = new mongoose.Schema({
+var MasterSchema = new mongoose.Schema({
     mlb_id: { type: Number, default: ''},
     mlb_pos : { type: Number, default: ''},
     mlb_team: { type: String, default: ''},

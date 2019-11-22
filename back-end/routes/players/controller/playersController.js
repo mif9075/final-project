@@ -1,27 +1,21 @@
 const People = require('../model/People');
-// const Master = require('../model/Master');
+const Master = require('../model/Master');
+const User = require('../../users/model/User')
 
 module.exports = {
 
     getAllPlayers: async (req, res) => {
+
         try {
-            let allPlayers = await People.find({})
+            let allPlayers = await User.find({})
+
+            // console.log(allPlayers)
 
             res.status(200).json(allPlayers);
         } catch (error) {
             console.log(error);
             res.status(500).json(error);
         }
-    },
-
-    getCurrentPlayers: async (req, res) => {
-        let currentPlayers = await People.find({})
-
-        
-    },
-
-    getRetiredPlayers: async (req, res) => {
-
     }
 
 }

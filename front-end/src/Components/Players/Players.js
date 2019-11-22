@@ -14,7 +14,11 @@ const styles = {
 
 class Players extends Component {
 
+
+
   render() {
+
+    // console.log(this.props)
 
     const { players } = this.props.player; 
 
