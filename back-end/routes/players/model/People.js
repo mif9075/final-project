@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
+var collectionName = 'People'
 
 var PeopleSchema = new mongoose.Schema({
     _id : { type: Number, default: ''},
@@ -28,5 +29,5 @@ var PeopleSchema = new mongoose.Schema({
     finalGame:  { type: String, default: ''}
 });
 
-module.exports = mongoose.model('People', PeopleSchema);
+module.exports = mongoose.model('People', PeopleSchema, collectionName);
 

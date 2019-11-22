@@ -1,13 +1,13 @@
 const People = require('../model/People');
-const Master = require('../model/Master');
-const User = require('../../users/model/User')
+// const Master = require('../model/Master');
+// const User = require('../../users/model/User')
 
 module.exports = {
 
     getAllPlayers: async (req, res) => {
 
         try {
-            let allPlayers = await User.find({})
+            let allPlayers = await People.find({})
 
             // console.log(allPlayers)
 
