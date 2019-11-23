@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import Players from '../Players/Players'
 import { connect } from 'react-redux';
-import { getAllPlayers } from '../../redux/actions/playerAction';
+import { getAllPlayers } from '../../redux/actions/playersAction';
 import Spinner from '../../Factory/Spinner/Spinner';
 
  class ShowAllPlayers extends Component {
@@ -28,7 +28,9 @@ import Spinner from '../../Factory/Spinner/Spinner';
   }
 
   render() {
+      
     // console.log(this.props);
+
     return (
         
       <div>

@@ -6,33 +6,25 @@ import Spinner from '../../Factory/Spinner/Spinner';
 class SeePlayer extends Component {
 
   state = {
-    title: '',
-    image: '',
     player: '',
-    isFetching: null
+    isFetching: false
   }
 
   componentDidMount() {
 
-    if (this.props.location.state !== undefined) {
-      this.setState({
-        title: this.props.location.state.title,
-        image: this.props.location.state.image,
-        player: this.props.location.state.player
-      })
-    } else {
-
       this.setState({
         isFetching: true
       })
+    //   console.log(this.props)
       this.props.getPlayerByID(this.props.match.params.id)
-                .then( player => {
-             
+                .then((player)=> {
+
+                console.log(player)
+
                   this.setState({
-                    title: player.title,
-                    image: player.image,
-                    player: player.player,
-                    isFetching: false
+                    isFetching: false,
+                    player: player.lahman_id
+                    
                   })
                 })
                 .catch(error => {
@@ -40,16 +32,19 @@ class SeePlayer extends Component {
                 })
     }
 
-  }
+  
 
   render() {
    
-    const { title, player, image, isFetching } = this.state
+    const { player, isFetching } = this.state
+    console.log(player)
+
+    console.log(this.props)
 
     let playerInfo = (
         <div className='App'>
-        <h1>title {title}</h1>
-        <div><img src={image} alt="hamster"/></div>
+        {/* <h1>title {title}</h1>
+        <div><img src={image} alt="hamster"/></div>  */}
         <p>{player}</p>
       </div>
     )

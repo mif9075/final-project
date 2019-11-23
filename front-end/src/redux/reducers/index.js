@@ -1,10 +1,12 @@
 import { combineReducers } from 'redux';
 import authReducer from './authReducer';
 import handleMessageReducer from './handleMessageReducer'
-import playerFeducer from './playerReducer'
+import playersReducer from './playersReducer'
+import playerReducer from'./playerReducer'
 
 export default combineReducers({
     authUser: authReducer,
     message: handleMessageReducer,
-    player: playerFeducer
+    players: playersReducer,
+    player: playerReducer
 });

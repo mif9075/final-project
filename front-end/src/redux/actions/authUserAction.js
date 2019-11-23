@@ -1,4 +1,4 @@
-import { REGISTER_SUCCESS_MESSAGE, REGISTER_ERROR_MESSAGE, LOGIN_USER_SUCCESS, AUTH_USER_LOGOUT } from '../actionTypes/actionTypes';
+import { REGISTER_SUCCESS_MESSAGE, REGISTER_ERROR_MESSAGE, LOGIN_USER_SUCCESS, LOGOUT_USER_SUCCESS } from '../actionTypes/actionTypes';
 import setAuthToken from '../../lib/setAuthToken';
 import Axios from '../../lib/Axios';
 
@@ -46,7 +46,7 @@ export const logout = () => dispatch => {
     localStorage.removeItem('jwtToken');
     setAuthToken(false);
     dispatch({
-        type: AUTH_USER_LOGOUT
+        type: LOGOUT_USER_SUCCESS
     });
 }
 

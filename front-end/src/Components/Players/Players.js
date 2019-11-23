@@ -18,9 +18,9 @@ class Players extends Component {
 
   render() {
 
-    // console.log(this.props)
+    console.log(this.props.players)
 
-    const { players } = this.props.player; 
+    const { players } = this.props.players; 
 
     return (
       <div className={this.props.classes.root}>
@@ -28,7 +28,7 @@ class Players extends Component {
           {
             players.map((player) => {
               return (
-                <Grid key={player._id}  item>
+                <Grid key={player.lahman_id}  item>
                   <Player {...player} />
                 </Grid>
               )
@@ -42,7 +42,8 @@ class Players extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    player: state.player,
+    players: state.players,
+    
   }
 }
 

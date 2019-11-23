@@ -8,7 +8,6 @@ router.get('/', function(req, res, next) {
   res.send('Player Route');
 });
 
-router.get('/get-player-by-id', passport.authenticate('jwt', {
-    session: false}), playerController.getPlayerByLahmanID);
+router.get('/get-player-by-id/:id',  playerController.getPlayerByID);
 
 module.exports = router;
