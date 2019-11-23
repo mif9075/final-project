@@ -12,7 +12,7 @@ export default function(state = initialState, action) {
     case GET_ALL_USER_PLAYERS:
       return {
         ...state, 
-        userPlayerss: [...action.payload]
+        userPlayers: [...action.payload]
       }
 
     case GET_ALL_PLAYERS: 

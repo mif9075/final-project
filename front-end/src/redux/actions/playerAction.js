@@ -9,8 +9,9 @@ export const getPlayerByID = (id) => async dispatch => {
   
       dispatch({
         type: GET_PLAYER_BY_ID,
-        payload: foundPlayer.data
+        payload: foundPlayer
       });
+    //   console.log(foundPlayer)
   
       return Promise.resolve(foundPlayer.data)
   

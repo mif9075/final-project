@@ -17,13 +17,13 @@ class SeePlayer extends Component {
       })
     //   console.log(this.props)
       this.props.getPlayerByID(this.props.match.params.id)
-                .then((player)=> {
+                .then((data)=> {
 
-                console.log(player)
+                // console.log(data)
 
                   this.setState({
                     isFetching: false,
-                    player: player.lahman_id
+                    player: data
                     
                   })
                 })
@@ -39,13 +39,13 @@ class SeePlayer extends Component {
     const { player, isFetching } = this.state
     console.log(player)
 
-    console.log(this.props)
+    console.log(this.state)
 
     let playerInfo = (
         <div className='App'>
         {/* <h1>title {title}</h1>
         <div><img src={image} alt="hamster"/></div>  */}
-        <p>{player}</p>
+        <p>{player.nameFirst + ' ' + player.nameLast}</p>
       </div>
     )
 
