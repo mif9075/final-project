@@ -43,10 +43,27 @@ class SeePlayer extends Component {
 
     let playerInfo = (
         <div className='App'>
-        {/* <h1>title {title}</h1>
-        <div><img src={image} alt="hamster"/></div>  */}
-        <p>{player.nameFirst + ' ' + player.nameLast}</p>
-      </div>
+	        <h1 itemprop="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+	    <p><strong>Position:</strong> Pending</p>
+        <p><strong>Bats: </strong>{player.bats}
+        &nbsp;•&nbsp;
+	    <strong>Throws: </strong>{player.throws}</p>
+        <p><strong>Height: </strong>{player.height}  in.,&nbsp;
+        <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
+        <p>
+        <strong>Born: </strong> 
+         {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
+        <span itemprop="birthPlace"> in {player.birthCity},
+        </span>
+        <span class="f-i f-pr"> {player.birthCountry}</span>
+        </p>
+    
+        <p><strong>Debut:</strong>{player.debut}</p>
+
+        <p><strong>Last Game:</strong>{player.finalGame}</p>
+
+</div>   
+      
     )
 
     return (
