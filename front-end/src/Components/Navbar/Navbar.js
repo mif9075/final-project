@@ -92,7 +92,7 @@ const styles = {
           to='/'
           className={this.props.classes.navLinkStyle}
           activeStyle={{ color: 'white', textDecoration: 'underline white' }}
-        >Welcome to BeisbolDom.Com</NavLink>
+        >Dominicans in the MLB</NavLink>
   
         <section className={this.props.classes.rightToolbar}>
           {navigation}

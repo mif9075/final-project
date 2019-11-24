@@ -11,4 +11,6 @@ router.post('/register', userController.register);
 
 router.post('/login', userController.login);
 
+router.post('/search', userController.search);
+
 module.exports = router;

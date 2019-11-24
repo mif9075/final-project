@@ -41,5 +41,16 @@ module.exports = {
                     message: error
                 })
         }
+    },
+
+    search: async (req, res) => {
+        try {
+            let foundNameorBirthPlace = await authHelper.findNameorBirthPlace(req.body.search);
+            res.status(200).json(foundNameorBirthPlace)
+        } catch (error) {
+            res.status(500).json({
+                message: error
+            });
+        }
     }
 }

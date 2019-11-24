@@ -1,6 +1,7 @@
 const User = require('../model/User');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
+const People = require('../../players/model/People');
 
 async function hashPassword(password) {
     let genSalt = await bcrypt.genSalt(10);
@@ -63,6 +64,28 @@ async function comparePassword(incomingPassword, userPassword) {
     }
 }
 
+async function findNameorBirthPlace(search) {
+    try {
+
+        let foundNameFirst = await People.find({ nameFirst: search });
+        let foundNameLast = await People.find({ nameLast: search });
+        let foundBirthCity = await People.find({ birthCity: search });
+
+        if (!foundNameFirst && !foundNameLast && !foundBirthCity) {
+            return 404;
+        }
+        if (!foundNameFirst && !foundNameLast) {
+            return foundBirthCity
+        } else if (!foundNameFirst && !foundBirthCity) {
+            return foundNameLast
+        } else {
+            return foundNameFirst
+        }
+    } catch (error) {
+        return error;
+    }
+}
+
 
 module.exports = {
     hashPassword,
@@ -70,5 +93,6 @@ module.exports = {
     errorHandler,
     findOneUser,
     createJwtToken,
-    comparePassword
+    comparePassword,
+    findNameorBirthPlace
 }
