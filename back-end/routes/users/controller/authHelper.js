@@ -64,12 +64,15 @@ async function comparePassword(incomingPassword, userPassword) {
     }
 }
 
-async function findNameorBirthPlace(search) {
+async function finder(search) {
     try {
-
-        let foundNameFirst = await People.find({ nameFirst: search });
-        let foundNameLast = await People.find({ nameLast: search });
-        let foundBirthCity = await People.find({ birthCity: search });
+        console.log(search)
+        let foundNameFirst = await People.findOne({nameFirst: search});
+        console.log(foundNameFirst)
+        let foundNameLast = await People.findOne({nameLast: search});
+        console.log(foundNameLast)
+        let foundBirthCity = await People.findOne({birthCity: search});
+        console.log(foundBirthCity)
 
         if (!foundNameFirst && !foundNameLast && !foundBirthCity) {
             return 404;
@@ -94,5 +97,5 @@ module.exports = {
     findOneUser,
     createJwtToken,
     comparePassword,
-    findNameorBirthPlace
+    finder
 }

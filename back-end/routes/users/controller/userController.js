@@ -45,8 +45,9 @@ module.exports = {
 
     search: async (req, res) => {
         try {
-            let foundNameorBirthPlace = await authHelper.findNameorBirthPlace(req.body.search);
-            res.status(200).json(foundNameorBirthPlace)
+            // console.log(req.body.search)
+            let foundInformation = await authHelper.finder(req.body.search);
+            res.status(200).json(foundInformation)
         } catch (error) {
             res.status(500).json({
                 message: error
