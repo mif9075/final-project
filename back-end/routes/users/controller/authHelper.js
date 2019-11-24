@@ -67,22 +67,24 @@ async function comparePassword(incomingPassword, userPassword) {
 async function finder(search) {
     try {
         console.log(search)
-        let foundNameFirst = await People.findOne({nameFirst: search});
+        let foundNameFirst = await People.find({nameFirst: search});
         console.log(foundNameFirst)
-        let foundNameLast = await People.findOne({nameLast: search});
+        let foundNameLast = await People.find({nameLast: search});
         console.log(foundNameLast)
-        let foundBirthCity = await People.findOne({birthCity: search});
+        let foundBirthCity = await People.find({birthCity: search});
         console.log(foundBirthCity)
 
-        if (!foundNameFirst && !foundNameLast && !foundBirthCity) {
-            return 404;
-        }
-        if (!foundNameFirst && !foundNameLast) {
-            return foundBirthCity
-        } else if (!foundNameFirst && !foundBirthCity) {
-            return foundNameLast
-        } else {
+        // if (!foundNameFirst && !foundNameLast && !foundBirthCity) {
+        //     return 404;
+        // }
+        if (foundNameFirst.length !== 0) {
             return foundNameFirst
+        } else if (foundNameLast.length !== 0) {
+            return foundNameLast
+        } else if (foundBirthCity.length !== 0){
+            return foundBirthCity
+        } else {
+            return 404;
         }
     } catch (error) {
         return error;
