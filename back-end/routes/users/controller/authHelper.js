@@ -74,9 +74,6 @@ async function finder(search) {
         let foundBirthCity = await People.find({birthCity: search});
         console.log(foundBirthCity)
 
-        // if (!foundNameFirst && !foundNameLast && !foundBirthCity) {
-        //     return 404;
-        // }
         if (foundNameFirst.length !== 0) {
             return foundNameFirst
         } else if (foundNameLast.length !== 0) {
