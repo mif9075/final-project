@@ -18,7 +18,7 @@ class Players extends Component {
 
   render() {
 
-    console.log(this.props.players)
+    // console.log(this.props.players)
 
     const { players } = this.props.players; 
 

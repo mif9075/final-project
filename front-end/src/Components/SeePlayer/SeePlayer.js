@@ -37,9 +37,9 @@ class SeePlayer extends Component {
   render() {
    
     const { player, isFetching } = this.state
-    console.log(player)
+    // console.log(player)
 
-    console.log(this.state)
+    // console.log(this.state)
 
     let playerInfo = (
         <div className='App'>

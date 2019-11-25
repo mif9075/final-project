@@ -8,8 +8,9 @@ import { withStyles } from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
 import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { logout } from '../../redux/actions/authUserAction'
-import { submitSearch } from '../../redux/actions/searchAction'
+import { logout } from '../../redux/actions/authUserAction';
+import { submitSearch } from '../../redux/actions/searchAction';
+import FormControl from '@material-ui/core/FormControl';
 
 const styles = theme => ({
     rightToolbar: {
@@ -83,15 +84,28 @@ const styles = theme => ({
 class PrimarySearchAppBar extends React.Component {
 
     state = {
-        searchInput: '',
+        searchField: '',
         setSearchInput: ''
     }
 
+    
+
+    handleSubmit = (event) => {
+        event.preventDefault()
+        console.log('we in it')
+        console.log(this.props)
+        this.props.submitSearch({
+            type: 'SUBMIT_SEARCH',
+            payload: this.state.searchField
+        })
+        // setSearchInput({ searchInput: "" });
+        // history.push("/");
+      };
+
     // handleSubmit = () => {
-    //     dispatch(submitSearch(searchInput));
-    //     setSearchInput({ searchInput: "" });
-    //     history.push("/search-result");
-    //   };
+    //     event.preventDefault();
+
+    // }
     
     // handleInput = event => {
     //     event.preventDefault();
@@ -100,10 +114,18 @@ class PrimarySearchAppBar extends React.Component {
     //     });
     //   };
 
+    handleChange = (e) => {
+        // event.preventDefault();
+      
+        this.setState({ searchField: e.target.value });
+        
+    }
+
   render() {
     const { classes } = this.props;
-
+    // console.log(this.state)
     let navigation = null;
+    console.log(this.props)
   
       if (this.props.authUser.isAuthenticated) {
         
@@ -167,17 +189,22 @@ class PrimarySearchAppBar extends React.Component {
               <div className={classes.searchIcon}>
                 <SearchIcon />
               </div>
+              <form onSubmit={this.handleSubmit}>
               <InputBase
+                
                 // value={searchInput.searchInput}
-                onChange={e => console.log(e)}
+                onChange=
+                    {this.handleChange}
+                
+            
                 placeholder="Search: Name or Birth City"
                 classes={{
                   root: classes.inputRoot,
                   input: classes.inputInput,
                 }}
               />
+              </form>
             </div>
-
 
             <section className={this.props.classes.rightToolbar}>
             {navigation}
@@ -196,9 +223,10 @@ PrimarySearchAppBar.propTypes = {
 };
 
 const mapStateToProps = state => {
+    console.log(state)
     return {
         authUser: state.authUser
     }
 }
 
-export default connect(mapStateToProps, { logout }) (withStyles(styles)(PrimarySearchAppBar));
+export default connect(mapStateToProps, { logout, submitSearch }) (withStyles(styles)(PrimarySearchAppBar));

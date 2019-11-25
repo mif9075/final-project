@@ -3,7 +3,8 @@ import Axios from '../../lib/Axios';
 
 export const submitSearch = searchTerm => async dispatch => {
     try {
-        const search = {search: searchTerm.searchInput };
+        const search = {search: searchTerm.payload };
+        
         let success = await Axios.post('/users/search', search);
 
         dispatch({

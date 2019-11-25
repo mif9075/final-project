@@ -5,7 +5,7 @@ import ShowAllPlayers from '../ShowAllPlayers/ShowAllPlayers';
 class Home extends Component {
 
   render() {
-    //   console.log(this.props)
+      console.log(this.props)
     return (
       <div className='App'>
        {this.props.authUser.isAuthenticated ? <ShowAllPlayers user={this.props.authUser.user}/> : <h1>Sign up to join!</h1>}

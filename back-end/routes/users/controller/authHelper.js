@@ -68,11 +68,11 @@ async function finder(search) {
     try {
         console.log(search)
         let foundNameFirst = await People.find({nameFirst: search});
-        console.log(foundNameFirst)
+        // console.log(foundNameFirst)
         let foundNameLast = await People.find({nameLast: search});
-        console.log(foundNameLast)
+        // console.log(foundNameLast)
         let foundBirthCity = await People.find({birthCity: search});
-        console.log(foundBirthCity)
+        // console.log(foundBirthCity)
 
         if (foundNameFirst.length !== 0) {
             return foundNameFirst
