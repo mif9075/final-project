@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Navbar from './Components/Navbar/Navbar'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
-import Footer from './Components/Footer/Footer'
+// import Footer from './Components/Footer/Footer'
 
 import './App.css';
 
@@ -33,7 +33,7 @@ class App extends Component {
                 <Route path="" component={NotFound} />
             </Switch>
             
-            <Footer />
+            {/* <Footer /> */}
         </>
         )
     }

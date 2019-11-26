@@ -14,9 +14,16 @@ import { submitSearch } from '../../redux/actions/searchAction';
 
 import IconButton from '@material-ui/core/IconButton'
 import Badge from '@material-ui/core/Badge'
-import MailIcon from '@material-ui/icons/Mail'
-import NotificationsIcon from '@material-ui/icons/Notifications'
-import AccountCircle from '@material-ui/icons/AccountCircle'
+// import MailIcon from '@material-ui/icons/Mail'
+// import NotificationsIcon from '@material-ui/icons/Notifications'
+// import AccountCircle from '@material-ui/icons/AccountCircle'
+
+import Icon from '@mdi/react'
+import { mdiTwitter } from '@mdi/js'
+import { mdiFacebook } from '@mdi/js'
+import { mdiInstagram } from '@mdi/js'
+import {mdiYoutube} from '@mdi/js'
+import {mdiReddit} from '@mdi/js'
 
 const styles = theme => ({
     rightToolbar: {
@@ -212,11 +219,49 @@ class PrimarySearchAppBar extends React.Component {
     </div>
     <div className={classes.grow} />
     
-
-
             
-            <div className={classes.sectionDesktop} className={classes.title}>
-              <IconButton color="inherit">
+            <div className={classes.title}>
+
+            <a href="https://twitter.com/realbeisboldom">
+            <IconButton>
+            <Badge>
+            <Icon path={mdiTwitter} size={1} color='white'/>
+            </Badge>
+            </IconButton>
+            </a>
+
+            <a href="https://facebook.com/realbeisboldom">
+            <IconButton>
+            <Badge>
+            <Icon path={mdiFacebook } size={1} color="white" />
+            </Badge>
+            </IconButton>
+            </a>
+
+            <a href="https://instagram.com/realbeisboldom">
+            <IconButton>
+            <Badge>
+            <Icon path={mdiInstagram } size={1} color="white" />
+            </Badge>
+            </IconButton>
+            </a>
+
+            <a href="https://reddit.com/user/realbeisboldom">
+            <IconButton>
+            <Badge>
+            <Icon path={mdiReddit } size={1} color="white" />
+            </Badge>
+            </IconButton>
+            </a>
+
+            <IconButton>
+            <Badge>
+            <Icon path={mdiYoutube } size={1} color="white" />
+            </Badge>
+            </IconButton>
+            
+
+              {/* <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">
                   <MailIcon />
                 </Badge>
@@ -233,7 +278,7 @@ class PrimarySearchAppBar extends React.Component {
                 color="inherit"
               >
                 <AccountCircle />
-              </IconButton>
+              </IconButton> */}
             </div>
     
     <section className={this.props.classes.rightToolbar}>
