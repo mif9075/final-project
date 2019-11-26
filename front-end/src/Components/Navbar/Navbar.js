@@ -2,6 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
+import Typography from '@material-ui/core/Typography'
 import InputBase from '@material-ui/core/InputBase';
 import { fade } from '@material-ui/core/styles/colorManipulator';
 import { withStyles } from '@material-ui/core/styles';
@@ -10,7 +11,12 @@ import { NavLink } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { logout } from '../../redux/actions/authUserAction';
 import { submitSearch } from '../../redux/actions/searchAction';
-import FormControl from '@material-ui/core/FormControl';
+
+import IconButton from '@material-ui/core/IconButton'
+import Badge from '@material-ui/core/Badge'
+import MailIcon from '@material-ui/icons/Mail'
+import NotificationsIcon from '@material-ui/icons/Notifications'
+import AccountCircle from '@material-ui/icons/AccountCircle'
 
 const styles = theme => ({
     rightToolbar: {
@@ -24,62 +30,62 @@ const styles = theme => ({
       signupAndSignin: {
         marginLeft: '10px'
       },
-  root: {
-    width: '100%',
-  },
-  grow: {
-    flexGrow: 1,
-  },
-  menuButton: {
-    marginLeft: -12,
-    marginRight: 20,
-  },
-  title: {
-    display: 'none',
-    [theme.breakpoints.up('sm')]: {
-      display: 'block',
+    root: {
+        width: '100%',
     },
-  },
-  search: {
-    position: 'relative',
-    borderRadius: theme.shape.borderRadius,
-    backgroundColor: fade(theme.palette.common.white, 0.15),
-    '&:hover': {
-      backgroundColor: fade(theme.palette.common.white, 0.25),
+    grow: {
+        flexGrow: 1,
     },
-    marginRight: theme.spacing.unit * 2,
-    marginLeft: 0,
-    width: '100%',
-    [theme.breakpoints.up('sm')]: {
-      marginLeft: theme.spacing.unit * 3,
-      width: 'auto',
+    menuButton: {
+        marginLeft: -12,
+        marginRight: 20,
     },
-  },
-  searchIcon: {
-    width: theme.spacing.unit * 9,
-    height: '100%',
-    position: 'absolute',
-    pointerEvents: 'none',
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  inputRoot: {
-    color: 'inherit',
-    width: '100%',
-  },
-  inputInput: {
-    paddingTop: theme.spacing.unit,
-    paddingRight: theme.spacing.unit,
-    paddingBottom: theme.spacing.unit,
-    paddingLeft: theme.spacing.unit * 10,
-    transition: theme.transitions.create('width'),
-    width: '100%',
-    [theme.breakpoints.up('md')]: {
-      width: 200,
+    title: {
+        display: 'none',
+        [theme.breakpoints.up('sm')]: {
+        display: 'block',
+        },
     },
-  }
-});
+    search: {
+        position: 'relative',
+        borderRadius: theme.shape.borderRadius,
+        backgroundColor: fade(theme.palette.common.white, 0.15),
+        '&:hover': {
+        backgroundColor: fade(theme.palette.common.white, 0.25),
+        },
+        marginRight: theme.spacing.unit * 2,
+        marginLeft: 0,
+        width: '100%',
+        [theme.breakpoints.up('sm')]: {
+        marginLeft: theme.spacing.unit * 3,
+        width: 'auto',
+        },
+    },
+    searchIcon: {
+        width: theme.spacing.unit * 9,
+        height: '100%',
+        position: 'absolute',
+        pointerEvents: 'none',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+    inputRoot: {
+        color: 'inherit',
+        width: '100%',
+    },
+    inputInput: {
+        paddingTop: theme.spacing.unit,
+        paddingRight: theme.spacing.unit,
+        paddingBottom: theme.spacing.unit,
+        paddingLeft: theme.spacing.unit * 10,
+        transition: theme.transitions.create('width'),
+        width: '100%',
+        [theme.breakpoints.up('md')]: {
+        width: 200,
+        },
+    }
+    });
 
 class PrimarySearchAppBar extends React.Component {
 
@@ -92,27 +98,26 @@ class PrimarySearchAppBar extends React.Component {
 
     handleSubmit = (event) => {
         event.preventDefault()
-        console.log('we in it')
-        console.log(this.props)
+        // console.log(this.props)
         this.props.submitSearch({
             type: 'SUBMIT_SEARCH',
             payload: this.state.searchField
         })
+        .then(() => {
+            // this.setState({ searchField: '' });
+            // this.props.history.push('/') 
+          })
+          .catch(error => {
+              console.log(error.response)
+            // this.props.RegisterErrorMessage(error.response.data.message)
+            // this.setState({
+            //   submitted: false
+            // })
+          })
         // setSearchInput({ searchInput: "" });
         // history.push("/");
       };
 
-    // handleSubmit = () => {
-    //     event.preventDefault();
-
-    // }
-    
-    // handleInput = event => {
-    //     event.preventDefault();
-    //     setSearchInput({
-    //       searchInput: event.target.value
-    //     });
-    //   };
 
     handleChange = (e) => {
         // event.preventDefault();
@@ -125,7 +130,7 @@ class PrimarySearchAppBar extends React.Component {
     const { classes } = this.props;
     // console.log(this.state)
     let navigation = null;
-    console.log(this.props)
+    // console.log(this.props)
   
       if (this.props.authUser.isAuthenticated) {
         
@@ -174,46 +179,73 @@ class PrimarySearchAppBar extends React.Component {
         }
 
     return (
-      <div className={classes.root}>
+    <div className={classes.root}>
         <AppBar position="static">
-          <Toolbar>
-
+            <Toolbar>
+        <Typography className={classes.title} variant='h6' color='inherit' noWrap>
         <NavLink 
             exact
             to='/'
             className={this.props.classes.navLinkStyle}
             activeStyle={{ color: 'white', textDecoration: 'underline white' }}
-          >Dominicans in the MLB</NavLink>
+          >Dominicans in the MLB
+        </NavLink>
+        </Typography>
 
-            <div className={classes.search}>
-              <div className={classes.searchIcon}>
-                <SearchIcon />
-              </div>
-              <form onSubmit={this.handleSubmit}>
-              <InputBase
+    <div className={classes.search}>
+     <div className={classes.searchIcon}>
+        <SearchIcon />
+    </div>
+    <form onSubmit={this.handleSubmit}>
+        <InputBase
                 
                 // value={searchInput.searchInput}
-                onChange=
-                    {this.handleChange}
+        onChange={this.handleChange}
                 
-            
-                placeholder="Search: Name or Birth City"
-                classes={{
-                  root: classes.inputRoot,
-                  input: classes.inputInput,
+        placeholder="Search..."
+            classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
                 }}
-              />
-              </form>
+        />
+    </form>
+    </div>
+    <div className={classes.grow} />
+    
+
+
+            
+            <div className={classes.sectionDesktop} className={classes.title}>
+              <IconButton color="inherit">
+                <Badge badgeContent={4} color="secondary">
+                  <MailIcon />
+                </Badge>
+              </IconButton>
+              <IconButton color="inherit">
+                <Badge badgeContent={17} color="secondary">
+                  <NotificationsIcon />
+                </Badge>
+              </IconButton>
+              <IconButton
+                // aria-owns={isMenuOpen ? 'material-appbar' : undefined}
+                aria-haspopup="true"
+                onClick={this.handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
             </div>
+    
+    <section className={this.props.classes.rightToolbar}>
+        
+        {navigation}
+    </section>
+    
 
-            <section className={this.props.classes.rightToolbar}>
-            {navigation}
-          </section>
-
-          </Toolbar>
+        </Toolbar>
         </AppBar>
         
-      </div>
+    </div>
     );
   }
 }
@@ -223,7 +255,7 @@ PrimarySearchAppBar.propTypes = {
 };
 
 const mapStateToProps = state => {
-    console.log(state)
+    // console.log(state)
     return {
         authUser: state.authUser
     }

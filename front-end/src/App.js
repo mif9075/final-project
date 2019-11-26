@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import Navbar from './Components/Navbar/Navbar'
 import PrivateRoute from './Components/PrivateRoute/PrivateRoute'
-// import Footer from './Components/Footer/Footer'
+import Footer from './Components/Footer/Footer'
 
 import './App.css';
 
@@ -14,6 +14,7 @@ const Home = React.lazy(() => import('./Components/Home/Home'))
 const NotFound = React.lazy(() => import('./Components/NotFound/NotFound'))
 const SeePlayer = React.lazy(() => import('./Components/SeePlayer/SeePlayer'))
 const UserProfile = React.lazy(() => import('./Components/UserProfile/UserProfile'))
+const SearchResult = React.lazy(() => import('./Components/SearchResult/SearchResult'))
 
 class App extends Component {
 
@@ -25,12 +26,14 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
+                <Route exact path="/search=result" component={SearchResult} />
 
                 <PrivateRoute exact path="/see-player/:id" component={SeePlayer} />
                 <PrivateRoute exact path="/user-profile" component={UserProfile} />
                 <Route path="" component={NotFound} />
             </Switch>
-            {/* <Footer /> */}
+            
+            <Footer />
         </>
         )
     }
