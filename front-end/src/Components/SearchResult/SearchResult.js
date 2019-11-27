@@ -15,25 +15,37 @@ class SearchResult extends Component {
 
   render() {
 
-    console.log(this.props)
+    // console.log(this.props)
+    // console.log(playersResults)
 
-    const playersResults  = this.props.searchResults;
+    let notFound = <div></div>
+    let playersResults  = this.props.searchResults;
 
-    console.log(playersResults)
+    
+
+    if (this.props.searchResults === 404) {
+        playersResults = [{notFound}]
+    }
+
+     
 
     return (
         <div className={this.props.classes.root}>
+            
                <Grid container justify="center"  spacing={1}>
             {
-              playersResults.map((player) => {
-                return (
-                  <Grid key={player.lahman_id}  item>
-                    <Player {...player} />
-                  </Grid>
-                )
-              })
+                (playersResults.map((player) => {
+                    return (
+                      <Grid key={player.lahman_id}  item>
+                        <Player {...player} />
+                      </Grid>
+                    )
+                  }))
+              
             }
+            {notFound}
         </Grid>
+    
         </div>
       )
     }
