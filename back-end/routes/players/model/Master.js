@@ -1,13 +1,15 @@
 var mongoose = require('mongoose');
-// const Schema = mongoose.Schema;
+const Schema = mongoose.Schema;
+var collectionName = 'Master'
 
 var MasterSchema = new mongoose.Schema({
-    mlb_id: { type: Number, default: ''},
-    mlb_pos : { type: Number, default: ''},
+    lahman_id: { type: String},
+    mlb_id: { type: String},
+    _id : { type: Number, default: ''},
+    mlb_pos : { type: String, default: ''},
     mlb_team: { type: String, default: ''},
     mlb_team_long: { type: String, default: ''},
-    lahman_id: { type: String, default: ''},
     ottoneu_pos: { type: String, default: ''}
 });
 
-module.exports = mongoose.model('Master', MasterSchema)
+module.exports = mongoose.model('Master', MasterSchema, collectionName)

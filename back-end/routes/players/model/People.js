@@ -1,11 +1,13 @@
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var collectionName = 'People'
+const Master = require('./Master')
 
 var PeopleSchema = new mongoose.Schema({
     _id : { type: Number, default: ''},
-    lahman_id:  { type: String, default: ''},
-    mlb_id:     { type: String, default: ''},
+    lahman_id:  { type: String},
+    mlb_id:     { type: String},
+    // mlb: {type: String},
     birthYear:  {type: Number, default: ''},
     birthMonth:  {type: Number, default: ''},
     birthDay:  {type: Number, default: ''},
@@ -27,7 +29,20 @@ var PeopleSchema = new mongoose.Schema({
     throws:     { type: String, default: ''},
     debut:      { type: String, default: ''},
     finalGame:  { type: String, default: ''}
-});
+    });
+
+    // PeopleSchema.virtual('mlb_id', {
+    //     ref: 'Master',
+    //     localField: 'lahman_id',
+    //     foreignField: 'lahman_id',
+    //     justOne: true
+    // })
+
+    //PeopleSchema.set('toJSON', { virtuals: true });
+
+    
+
+    // PeopleSchema.find({}).populate('mlb_id').exec()
 
 module.exports = mongoose.model('People', PeopleSchema, collectionName);
 

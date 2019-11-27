@@ -6,7 +6,7 @@ module.exports = {
     getPlayerByID: async (req, res) => {
         const id = req.params.id;
         try {
-            let foundPlayer = await People.findOne({lahman_id: id});
+            let foundPlayer = await People.findOne({lahman_id: id})
             // console.log(foundPlayer)
             res.status(200).json(foundPlayer);
         } catch (error) {

@@ -18,9 +18,34 @@ class Players extends Component {
 
   render() {
 
-    // console.log(this.props)
+    // console.log(this.props.players.players)
 
     const { players } = this.props.players; 
+
+    console.log(players)
+
+    //Filter by MLB ID
+
+    // const filtered = players.filter(function(player) {
+        
+    //     return player.mlb_id.length !== 0;
+    // }) 
+
+    // console.log(filtered)
+
+
+    //Filter By MLB 2019
+    
+    const filtered = players.filter(function(player) {
+
+            let date = new Date(player.finalGame);
+
+            let getDate = date.getFullYear();
+
+            return getDate === 2019;
+    })
+
+    console.log(filtered)
 
     return (
       <div className={this.props.classes.root}>

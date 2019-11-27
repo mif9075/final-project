@@ -37,13 +37,13 @@ class SeePlayer extends Component {
   render() {
    
     const { player, isFetching } = this.state
-    // console.log(player)
+    console.log(player)
 
     // console.log(this.state)
 
     let playerInfo = (
         <div className='App'>
-	        <h1 itemprop="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+	        <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
 	    <p><strong>Position:</strong> Pending</p>
         <p><strong>Bats: </strong>{player.bats}
         &nbsp;•&nbsp;
@@ -53,9 +53,9 @@ class SeePlayer extends Component {
         <p>
         <strong>Born: </strong> 
          {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
-        <span itemprop="birthPlace"> in {player.birthCity},
+        <span itemProp="birthPlace"> in {player.birthCity},
         </span>
-        <span class="f-i f-pr"> {player.birthCountry}</span>
+        <span className="f-i f-pr"> {player.birthCountry}</span>
         </p>
     
         <p><strong>Debut:</strong>{player.debut}</p>
