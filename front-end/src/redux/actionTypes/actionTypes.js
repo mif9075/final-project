@@ -17,3 +17,7 @@ export const ERROR_GET_PLAYER = 'ERROR_GET_PLAYER';
 export const SUBMIT_SEARCH = 'SUBMIT_SEARCH';
 export const ERROR_SEARCH = 'ERROR_SEARCH';
 
+export const ALL_PLAYERS = 'ALL_PLAYERS';
+export const ACTIVE_PLAYERS = 'ACTIVE_PLAYERS';
+export const RETIRED_PLAYERS = 'RETIRED_PLAYERS';
+

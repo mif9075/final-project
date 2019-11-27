@@ -1,4 +1,11 @@
-import { GET_ALL_PLAYERS, GET_ALL_USER_PLAYERS, ERROR_GET_PLAYER } from '../actionTypes/actionTypes';
+import { 
+    GET_ALL_PLAYERS, 
+    GET_ALL_USER_PLAYERS, 
+    ERROR_GET_PLAYER,
+    ALL_PLAYERS,
+    ACTIVE_PLAYERS,
+    RETIRED_PLAYERS
+} from '../actionTypes/actionTypes';
 import Axios from '../../lib/Axios';
 
 export const getAllPlayers = () => async dispatch => {
@@ -40,6 +47,24 @@ export const getAllUserPlayers = (id) => async dispatch => {
     dispatch(errorGetPlayer(error))
     return Promise.reject(error);
   }
+}
+
+export const getAllPlayersNow = () => dispatch => {
+    dispatch({
+        type: ALL_PLAYERS
+    })
+}
+
+export const getAllActivePlayers = () => dispatch => {
+    dispatch({
+        type: ACTIVE_PLAYERS
+    })
+}
+
+export const getAllRetiredPLayers = () => dispatch => {
+    dispatch({
+        type: RETIRED_PLAYERS
+    })
 }
 
 const errorGetPlayer = (message) => dispatch => {

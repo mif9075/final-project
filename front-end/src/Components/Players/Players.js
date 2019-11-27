@@ -3,6 +3,8 @@ import Player from '../Player/Player'
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+import Button from '@material-ui/core/Button';
+import { getAllPlayersNow, getAllActivePlayers, getAllRetiredPLayers } from '../../redux/actions/playersAction';
 
 const styles = {
   root: {
@@ -14,40 +16,26 @@ const styles = {
 
 class Players extends Component {
 
-
+    
 
   render() {
 
     // console.log(this.props.players.players)
-
+    //All Players 1956-2019
     const { players } = this.props.players; 
 
     console.log(players)
 
-    //Filter by MLB ID
-
-    // const filtered = players.filter(function(player) {
-        
-    //     return player.mlb_id.length !== 0;
-    // }) 
-
-    // console.log(filtered)
-
-
-    //Filter By MLB 2019
-    
-    const filtered = players.filter(function(player) {
-
-            let date = new Date(player.finalGame);
-
-            let getDate = date.getFullYear();
-
-            return getDate === 2019;
-    })
-
-    console.log(filtered)
-
     return (
+        <React.Fragment>
+        <Button onClick={this.props.getAllPlayersNow}>All Players</Button>
+      <Button color="primary" onClick={this.props.getAllActivePlayers}>
+        Active Players
+      </Button>
+      <Button color="secondary" onClick={this.props.getAllRetiredPLayers}>
+        Retired Players
+      </Button>
+
       <div className={this.props.classes.root}>
              <Grid container justify="center"  spacing={1}>
           {
@@ -61,6 +49,7 @@ class Players extends Component {
           }
       </Grid>
       </div>
+      </React.Fragment>
     )
   }
 }
@@ -72,4 +61,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles)(Players));
+export default connect(mapStateToProps, {getAllPlayersNow, getAllActivePlayers, getAllRetiredPLayers})(withStyles(styles)(Players));
