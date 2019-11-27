@@ -14,9 +14,6 @@ import { submitSearch } from '../../redux/actions/searchAction';
 
 import IconButton from '@material-ui/core/IconButton'
 import Badge from '@material-ui/core/Badge'
-// import MailIcon from '@material-ui/icons/Mail'
-// import NotificationsIcon from '@material-ui/icons/Notifications'
-// import AccountCircle from '@material-ui/icons/AccountCircle'
 
 import Icon from '@mdi/react'
 import { mdiTwitter } from '@mdi/js'
@@ -24,6 +21,8 @@ import { mdiFacebook } from '@mdi/js'
 import { mdiInstagram } from '@mdi/js'
 import {mdiYoutube} from '@mdi/js'
 import {mdiReddit} from '@mdi/js'
+
+import { withRouter } from 'react-router-dom'
 
 const styles = theme => ({
     rightToolbar: {
@@ -98,10 +97,20 @@ class PrimarySearchAppBar extends React.Component {
 
     state = {
         searchField: '',
-        setSearchInput: ''
+        submitted: false,
     }
 
-    
+    componentDidMount() {
+        if (this.props.authUser.isAuthenticated) {
+            this.props.history.push('/')
+        }
+    }
+
+    handleChange = (e) => {
+      
+        this.setState({ searchField: e.target.value });
+        
+    }
 
     handleSubmit = (event) => {
         event.preventDefault()
@@ -111,27 +120,11 @@ class PrimarySearchAppBar extends React.Component {
             payload: this.state.searchField
         })
         .then(() => {
-            // this.setState({ searchField: '' });
-            // this.props.history.push('/') 
+            this.setState({ searchField: '' });
+            this.props.history.push('/search-result') 
           })
-          .catch(error => {
-              console.log(error.response)
-            // this.props.RegisterErrorMessage(error.response.data.message)
-            // this.setState({
-            //   submitted: false
-            // })
-          })
-        // setSearchInput({ searchInput: "" });
-        // history.push("/");
       };
 
-
-    handleChange = (e) => {
-        // event.preventDefault();
-      
-        this.setState({ searchField: e.target.value });
-        
-    }
 
   render() {
     const { classes } = this.props;
@@ -306,4 +299,4 @@ const mapStateToProps = state => {
     }
 }
 
-export default connect(mapStateToProps, { logout, submitSearch }) (withStyles(styles)(PrimarySearchAppBar));
+export default connect(mapStateToProps, { logout, submitSearch }) (withRouter(withStyles(styles)(PrimarySearchAppBar)));

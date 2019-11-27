@@ -3,6 +3,7 @@ import Player from '../Player/Player'
 import Grid from '@material-ui/core/Grid';
 import { withStyles } from '@material-ui/core/styles';
 import { connect } from 'react-redux';
+// import SearchResult from '../SearchResult/SearchResult'
 
 const styles = {
   root: {
@@ -12,8 +13,11 @@ const styles = {
 }
 
 
-class Players extends Component {
+class PlayersResults extends Component {
 
+// componentDidMount(){
+//     this,props.get
+// }
 
 
   render() {
@@ -47,4 +51,4 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect(mapStateToProps, null)(withStyles(styles)(Players));
+export default connect(mapStateToProps, null)(withStyles(styles)(PlayersResults));

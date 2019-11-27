@@ -1,50 +1,46 @@
 import React, { Component } from "react";
+import Player from '../Player/Player';
+import Grid from '@material-ui/core/Grid';
+import { withStyles } from '@material-ui/core/styles'
 import { connect } from "react-redux";
-import Player from "../Player/Player";
-import { Button } from "@material-ui/core";
+
+const styles = {
+    root: {
+        flexGrow: 1,
+        marginTop: 15,
+    }
+}
 
 class SearchResult extends Component {
+
   render() {
-    let notFounded = <div></div>;
-    let resultCard = <div></div>;
 
-    if (this.props.searchResults === 404) {
-      notFounded = (
-        <div>
-          <h2>Not Found!</h2>
-          
-        </div>
-      );
-    }
-    if (this.props.searchResults.username) {
-      notFounded = (
-        <div>
-          <h3>User:</h3>
-          <Button variant="outlined" color="primary" href="/albums">
-            {this.props.searchResults.username}
-          </Button>
-        </div>
-      );
-    }
+    console.log(this.props)
 
-    if (this.props.searchResults.name) {
-      notFounded = <Player />;
-    }
+    const playersResults  = this.props.searchResults;
+
+    console.log(playersResults)
 
     return (
-      <div>
-        <h1>Search Result:</h1>
-        {notFounded}
-        {/* <h3>
-          {this.props.searchResults.username || this.props.searchResults.name}
-        </h3> */}
-        <resultCard />
-      </div>
-    );
+        <div className={this.props.classes.root}>
+               <Grid container justify="center"  spacing={1}>
+            {
+              playersResults.map((player) => {
+                return (
+                  <Grid key={player.lahman_id}  item>
+                    <Player {...player} />
+                  </Grid>
+                )
+              })
+            }
+        </Grid>
+        </div>
+      )
+    }
   }
-}
+    
 
 const mapStateToProps = state => {
   return state.search;
 };
-export default connect(mapStateToProps, null)(SearchResult);
+export default connect(mapStateToProps, null)(withStyles(styles)(SearchResult));

@@ -26,7 +26,7 @@ class App extends Component {
                 <Route exact path="/" component={Home} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/register" component={Register} />
-                <Route exact path="/search=result" component={SearchResult} />
+                <Route exact path="/search-result" component={SearchResult} />
 
                 <PrivateRoute exact path="/see-player/:id" component={SeePlayer} />
                 <PrivateRoute exact path="/user-profile" component={UserProfile} />
