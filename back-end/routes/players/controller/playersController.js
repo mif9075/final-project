@@ -26,7 +26,7 @@ module.exports = {
 
             // let allPlayers = await Master.find({});
 
-            console.log(allPlayers)
+            // console.log(allPlayers)
 
             res.status(200).json(allPlayers);
         } catch (error) {

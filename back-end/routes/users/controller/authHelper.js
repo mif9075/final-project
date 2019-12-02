@@ -66,7 +66,7 @@ async function comparePassword(incomingPassword, userPassword) {
 
 async function finder(search) {
     try {
-        console.log(search)
+        // console.log(search)
         let foundNameFirst = await People.find({nameFirst: search});
         // console.log(foundNameFirst)
         let foundNameLast = await People.find({nameLast: search});

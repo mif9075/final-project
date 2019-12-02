@@ -44,11 +44,11 @@ module.exports = {
     },
 
     search: async (req, res) => {
-        console.log(req)
+        // console.log(req)
         try {
             // console.log(req.body.search)
             let foundInformation = await authHelper.finder(req.body.search);
-            console.log(foundInformation)
+            // console.log(foundInformation)
             res.status(200).json(foundInformation)
         } catch (error) {
             res.status(500).json({
