@@ -23,7 +23,7 @@ class SeePlayer extends Component {
 
                   this.setState({
                     isFetching: false,
-                    mlb: data[0].mlb_id,
+                    mlbid: data[0].mlb_id[0].mlb_id,
                     player: data[0]
                     
                     
@@ -38,10 +38,10 @@ class SeePlayer extends Component {
 
   render() {
    
-    const { player, isFetching, mlb } = this.state
+    const { player, isFetching, mlbid } = this.state
     
     console.log(player)
-    console.log(mlb)
+    console.log(mlbid)
 
     let date = new Date(player.finalGame);
 
@@ -83,8 +83,9 @@ class SeePlayer extends Component {
 
         playerInfo = (
             <div className='App'>
-
+                <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
         <h1>Need 2019 Information</h1>
+        <h2>MLB ID: {mlbid}</h2>
         </div>
         )
 
