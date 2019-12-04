@@ -9,9 +9,6 @@ module.exports = {
 
         try {
 
-            
-
-
             let allPlayers = await People.aggregate([
                 {
                     $lookup:
@@ -50,6 +47,8 @@ module.exports = {
                       }
                  }
             ])
+
+            // console.log(foundPlayer)
 
              res.status(200).json(foundPlayer);
 

@@ -23,7 +23,9 @@ class SeePlayer extends Component {
 
                   this.setState({
                     isFetching: false,
-                    player: data
+                    mlb: data[0].mlb_id,
+                    player: data[0]
+                    
                     
                   })
                 })
@@ -36,15 +38,26 @@ class SeePlayer extends Component {
 
   render() {
    
-    const { player, isFetching } = this.state
-    // console.log(player)
+    const { player, isFetching, mlb } = this.state
+    
+    console.log(player)
+    console.log(mlb)
 
-    // console.log(this.state)
+    let date = new Date(player.finalGame);
 
-    let playerInfo = (
+    let getDate = date.getFullYear();
+
+    console.log(getDate);
+
+    let playerInfo = '';
+
+    if (getDate !== 2019) {
+    
+    playerInfo = (
         <div className='App'>
+            
 	        <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-	    <p><strong>Position:</strong> Pending</p>
+  <p><strong>Position:</strong></p>
         <p><strong>Bats: </strong>{player.bats}
         &nbsp;•&nbsp;
 	    <strong>Throws: </strong>{player.throws}</p>
@@ -65,6 +78,17 @@ class SeePlayer extends Component {
 </div>   
       
     )
+    }
+    else {
+
+        playerInfo = (
+            <div className='App'>
+
+        <h1>Need 2019 Information</h1>
+        </div>
+        )
+
+    }
 
     return (
      isFetching ? <Spinner /> : playerInfo

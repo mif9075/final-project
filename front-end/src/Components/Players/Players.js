@@ -13,10 +13,7 @@ const styles = {
   }
 }
 
-
 class Players extends Component {
-
-    
 
   render() {
 
@@ -24,7 +21,7 @@ class Players extends Component {
     //All Players 1956-2019
     const { players } = this.props.players; 
 
-    // console.log(players)
+    console.log(players)
 
     return (
         <React.Fragment>

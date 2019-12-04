@@ -6,7 +6,24 @@ module.exports = {
     getPlayerByID: async (req, res) => {
         const id = req.params.id;
         try {
-            let foundPlayer = await People.findOne({lahman_id: id})
+            // let foundPlayer = await People.findOne({lahman_id: id})
+
+            let foundPlayer = await People.aggregate([
+                {   $match: {
+                        lahman_id: id
+                            }
+                },
+                {   $lookup:
+                      {
+                        from: 'Master',
+                        localField: 'lahman_id',
+                        foreignField: 'lahman_id',
+                        as: 'mlb_id'
+                      }
+                 }
+            ])
+
+
             // console.log(foundPlayer)
             res.status(200).json(foundPlayer);
         } catch (error) {
