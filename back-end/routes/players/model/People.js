@@ -7,7 +7,7 @@ var PeopleSchema = new mongoose.Schema({
     _id : { type: Number, default: ''},
     lahman_id:  { type: String},
     mlb_id:     { type: String},
-    // mlb: {type: String},
+    // baseball_reference: {type: String},
     birthYear:  {type: Number, default: ''},
     birthMonth:  {type: Number, default: ''},
     birthDay:  {type: Number, default: ''},
