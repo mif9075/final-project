@@ -50,7 +50,72 @@ class SeePlayer extends Component {
 
     let playerInfo = '';
 
-    if (getDate !== 2019) {
+    if (getDate === 2019) {
+
+        if (mlb.mlb_pos === 'P'){
+            
+            playerInfo = (
+                <div className='App'>
+                    <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+            <p>Active Player : Need 2019 Pitcher Information</p>
+            <p>MLB ID: {mlb.mlb_id}</p>
+        <p><strong>Position:{mlb.mlb_pos}</strong></p>
+        <p><strong>MLB Team:{mlb.mlb_team_long}</strong></p>
+            <p><strong>Bats: </strong>{player.bats}
+            &nbsp;•&nbsp;
+            <strong>Throws: </strong>{player.throws}</p>
+            <p><strong>Height: </strong>{player.height}  in.,&nbsp;
+            <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
+            <p>
+            <strong>Born: </strong> 
+             {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
+            <span itemProp="birthPlace"> in {player.birthCity},
+            </span>
+            <span className="f-i f-pr"> {player.birthCountry}</span>
+            </p>
+        
+            <p><strong>Debut:</strong>{player.debut}</p>
+    
+            <p><strong>Last Game:</strong>Active Player</p>
+            </div>
+            )
+
+        } else {
+
+            playerInfo = (
+                <div className='App'>
+                    <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+            <p>Active Player : Need 2019 Batter Information</p>
+            <p>MLB ID: {mlb.mlb_id}</p>
+        <p><strong>Position:{mlb.mlb_pos}</strong></p>
+        <p><strong>MLB Team:{mlb.mlb_team_long}</strong></p>
+            <p><strong>Bats: </strong>{player.bats}
+            &nbsp;•&nbsp;
+            <strong>Throws: </strong>{player.throws}</p>
+            <p><strong>Height: </strong>{player.height}  in.,&nbsp;
+            <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
+            <p>
+            <strong>Born: </strong> 
+             {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
+            <span itemProp="birthPlace"> in {player.birthCity},
+            </span>
+            <span className="f-i f-pr"> {player.birthCountry}</span>
+            </p>
+        
+            <p><strong>Debut:</strong>{player.debut}</p>
+    
+            <p><strong>Last Game:</strong>Active Player</p>
+            </div>
+            )
+
+        }
+        
+        
+
+
+    }
+
+    else {
     
     playerInfo = (
         <div className='App'>
@@ -77,35 +142,6 @@ class SeePlayer extends Component {
 </div>   
       
     )
-    }
-    else {
-
-        playerInfo = (
-            <div className='App'>
-                <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-        <p>Active Player : Need 2019 Information</p>
-        <p>MLB ID: {mlb.mlb_id}</p>
-    <p><strong>Position:{mlb.mlb_pos}</strong></p>
-    <p><strong>MLB Team:{mlb.mlb_team_long}</strong></p>
-        <p><strong>Bats: </strong>{player.bats}
-        &nbsp;•&nbsp;
-	    <strong>Throws: </strong>{player.throws}</p>
-        <p><strong>Height: </strong>{player.height}  in.,&nbsp;
-        <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
-        <p>
-        <strong>Born: </strong> 
-         {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
-        <span itemProp="birthPlace"> in {player.birthCity},
-        </span>
-        <span className="f-i f-pr"> {player.birthCountry}</span>
-        </p>
-    
-        <p><strong>Debut:</strong>{player.debut}</p>
-
-        <p><strong>Last Game:</strong>Active Player</p>
-        </div>
-        )
-
     }
 
     return (
