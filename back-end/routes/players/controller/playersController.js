@@ -1,5 +1,6 @@
 const People = require('../model/People');
 const Master = require('../model/Master');
+const Baseball = require('../model/Baseball');
 
 // const User = require('../../users/model/User')
 
@@ -16,7 +17,17 @@ module.exports = {
                         from: 'Master',
                         localField: 'lahman_id',
                         foreignField: 'lahman_id',
-                        as: 'mlb_id'
+                        as: 'mlb_id',
+                      }
+                 },
+
+                 {
+                    $lookup:
+                      {
+                        from: 'Baseball',
+                        localField: 'lahman_id',
+                        foreignField: 'playerID',
+                        as: 'baseball_id',
                       }
                  }
             ])
@@ -45,7 +56,18 @@ module.exports = {
                         foreignField: 'lahman_id',
                         as: 'mlb_id'
                       }
+                 },
+
+                 {
+                    $lookup:
+                      {
+                        from: 'Baseball',
+                        localField: 'lahman_id',
+                        foreignField: 'playerID',
+                        as: 'baseball_id',
+                      }
                  }
+                 
             ])
 
             // console.log(foundPlayer)

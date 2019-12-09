@@ -1,11 +1,11 @@
 var mongoose = require('mongoose');
 const Schema = mongoose.Schema;
-var collectionName = 'BaseballReference'
+var collectionName = 'Baseball'
 
-var MasterSchema = new mongoose.Schema({
-
+var BaseballSchema = new mongoose.Schema({
+    _id : { type: Number, default: ''},
+    playerID: { type: String},
     Rk: { type: Number, default: ''},
-    lahman_id: { type: String},
     Name: { type: String},
     Yrs: { type: Number, default: ''},
     From: { type: Number, default: ''},
@@ -36,4 +36,4 @@ var MasterSchema = new mongoose.Schema({
 
 });
 
-module.exports = mongoose.model('BaseballReference', MasterSchema, collectionName)
+module.exports = mongoose.model('Baseball', BaseballSchema, collectionName)

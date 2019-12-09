@@ -18,7 +18,16 @@ module.exports = {
                         from: 'Master',
                         localField: 'lahman_id',
                         foreignField: 'lahman_id',
-                        as: 'mlb_id'
+                        as: 'mlb_id',
+                      }
+                 },
+                 {
+                    $lookup:
+                      {
+                        from: 'Baseball',
+                        localField: 'lahman_id',
+                        foreignField: 'playerID',
+                        as: 'baseball_id',
                       }
                  }
             ])
