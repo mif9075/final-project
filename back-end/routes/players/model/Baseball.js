@@ -32,7 +32,7 @@ var BaseballSchema = new mongoose.Schema({
     Birthdate: { type: String},
     Debut: { type: String},
     Birthplace: { type: String},
-    Pos: { type: Number, default: ''}
+    Pos: { type: Number }
 
 });
 

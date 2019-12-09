@@ -8,7 +8,9 @@ class SeePlayer extends Component {
   state = {
     player: '',
     isFetching: false,
-    mlb: ''
+    mlb: '',
+    baseball: '',
+    position: '',
   }
 
   componentDidMount() {
@@ -25,7 +27,9 @@ class SeePlayer extends Component {
                   this.setState({
                     isFetching: false,
                     player: data[0], 
-                    mlb: data[0].mlb_id[0]
+                    mlb: data[0].mlb_id[0],
+                    baseball: data[0].baseball_id[0],
+                    position: data[0].baseball_id[0].Pos,
                     
                   })
                 })
@@ -38,15 +42,17 @@ class SeePlayer extends Component {
 
   render() {
    
-    const { player, isFetching, mlb } = this.state
+    const { player, isFetching, mlb, baseball, position } = this.state
 
-    console.log(mlb)
+    console.log(baseball)
+
+    console.log(position)
 
     let date = new Date(player.finalGame);
 
     let getDate = date.getFullYear();
 
-    console.log(getDate);
+    // console.log(getDate);
 
     let playerInfo = '';
 
@@ -82,6 +88,7 @@ class SeePlayer extends Component {
 
         } else {
 
+
             playerInfo = (
                 <div className='App'>
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
@@ -116,32 +123,69 @@ class SeePlayer extends Component {
     }
 
     else {
-    
-    playerInfo = (
-        <div className='App'>
+
+        // let pos = baseball.Pos;
+        // console.log(baseball)
+        
+        if (position.includes('1')) {
+
+            playerInfo = (
+                <div className='App'>
+                    
+                    <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+                <p><strong>Position: Pitcher</strong></p>
+                <p><strong>Bats: </strong>{player.bats}
+                &nbsp;•&nbsp;
+                <strong>Throws: </strong>{player.throws}</p>
+                <p><strong>Height: </strong>{player.height}  in.,&nbsp;
+                <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
+                <p>
+                <strong>Born: </strong> 
+                 {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
+                <span itemProp="birthPlace"> in {player.birthCity},
+                </span>
+                <span className="f-i f-pr"> {player.birthCountry}</span>
+                </p>
             
-	        <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-        <p><strong>Position:</strong></p>
-        <p><strong>Bats: </strong>{player.bats}
-        &nbsp;•&nbsp;
-	    <strong>Throws: </strong>{player.throws}</p>
-        <p><strong>Height: </strong>{player.height}  in.,&nbsp;
-        <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
-        <p>
-        <strong>Born: </strong> 
-         {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
-        <span itemProp="birthPlace"> in {player.birthCity},
-        </span>
-        <span className="f-i f-pr"> {player.birthCountry}</span>
-        </p>
+                <p><strong>Debut:</strong>{player.debut}</p>
+        
+                <p><strong>Last Game:</strong>{player.finalGame}</p>
+        
+        </div>   
+              
+            )
+
+        } else {
+
+            playerInfo = (
+                <div className='App'>
+                    
+                    <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+                <p><strong>Position:Batter</strong></p>
+                <p><strong>Bats: </strong>{player.bats}
+                &nbsp;•&nbsp;
+                <strong>Throws: </strong>{player.throws}</p>
+                <p><strong>Height: </strong>{player.height}  in.,&nbsp;
+                <strong>Weight:</strong>{player.weight} lbs. &nbsp; </p>
+                <p>
+                <strong>Born: </strong> 
+                 {player.birthMonth + '/' + player.birthDay + '/' + player.birthYear}
+                <span itemProp="birthPlace"> in {player.birthCity},
+                </span>
+                <span className="f-i f-pr"> {player.birthCountry}</span>
+                </p>
+            
+                <p><strong>Debut:</strong>{player.debut}</p>
+        
+                <p><strong>Last Game:</strong>{player.finalGame}</p>
+        
+        </div>   
+              
+            )
+
+        }
     
-        <p><strong>Debut:</strong>{player.debut}</p>
-
-        <p><strong>Last Game:</strong>{player.finalGame}</p>
-
-</div>   
-      
-    )
+    
     }
 
     return (
