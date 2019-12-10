@@ -112,6 +112,57 @@ class SeePlayer extends Component {
             <p><strong>Debut:</strong>{player.debut}</p>
     
             <p><strong>Last Game:</strong>Active Player</p>
+
+            <table align="center">
+                    <thead>
+                    <tr>
+                        <th>SUMMARY</th>
+                        <th>WAR</th>
+                        <th>AB</th>
+                        <th>H</th>
+                        <th>HR</th>
+                        <th>BA</th>
+                        <th>R</th>
+                        <th>RBI</th>
+                        <th>SB</th>
+                        <th>OBP</th>
+                        <th>SLG</th>
+                        <th>OPS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2019</td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td>Career</td>
+                        <td>{baseball.WAR}</td>
+                        <td>{baseball.AB}</td>
+                        <td>{baseball.H}</td>
+                        <td>{baseball.HR}</td>
+                        <td>{baseball.BA}</td>
+                        <td>{baseball.R}</td>
+                        <td>{baseball.RBI}</td>
+                        <td>{baseball.SB}</td>
+                        <td>{baseball.OBP}</td>
+                        <td>{baseball.SLG}</td>
+                        <td>{baseball.OPS}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
+
             </div>
             )
 
@@ -178,7 +229,41 @@ class SeePlayer extends Component {
                 <p><strong>Debut:</strong>{player.debut}</p>
         
                 <p><strong>Last Game:</strong>{player.finalGame}</p>
-        
+    
+                <table align="center">
+                    <thead>
+                    <tr>
+                        <th>SUMMARY</th>
+                        <th>WAR</th>
+                        <th>AB</th>
+                        <th>H</th>
+                        <th>HR</th>
+                        <th>BA</th>
+                        <th>R</th>
+                        <th>RBI</th>
+                        <th>SB</th>
+                        <th>OBP</th>
+                        <th>SLG</th>
+                        <th>OPS</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Career</td>
+                        <td>{baseball.WAR}</td>
+                        <td>{baseball.AB}</td>
+                        <td>{baseball.H}</td>
+                        <td>{baseball.HR}</td>
+                        <td>{baseball.BA}</td>
+                        <td>{baseball.R}</td>
+                        <td>{baseball.RBI}</td>
+                        <td>{baseball.SB}</td>
+                        <td>{baseball.OBP}</td>
+                        <td>{baseball.SLG}</td>
+                        <td>{baseball.OPS}</td>
+                    </tr>
+                    </tbody>
+                </table>
         </div>   
               
             )
