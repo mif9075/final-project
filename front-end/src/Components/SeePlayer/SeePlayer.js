@@ -165,11 +165,7 @@ class SeePlayer extends Component {
 
             </div>
             )
-
         }
-        
-        
-
 
     }
 
