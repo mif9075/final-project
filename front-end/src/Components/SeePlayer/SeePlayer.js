@@ -11,6 +11,7 @@ class SeePlayer extends Component {
     mlb: '',
     baseball: '',
     position: '',
+    pitching: '',
   }
 
   componentDidMount() {
@@ -30,6 +31,7 @@ class SeePlayer extends Component {
                     mlb: data[0].mlb_id[0],
                     baseball: data[0].baseball_id[0],
                     position: data[0].baseball_id[0].Pos,
+                    pitching: data[0].pitching_id[0]
                     
                   })
                 })
@@ -42,11 +44,13 @@ class SeePlayer extends Component {
 
   render() {
    
-    const { player, isFetching, mlb, baseball, position } = this.state
+    const { player, isFetching, mlb, baseball, position, pitching } = this.state
 
-    console.log(baseball)
+    // console.log(baseball)
 
     console.log(position)
+// 
+    console.log(pitching)
 
     let date = new Date(player.finalGame);
 
@@ -197,6 +201,38 @@ class SeePlayer extends Component {
                 <p><strong>Debut:</strong>{player.debut}</p>
         
                 <p><strong>Last Game:</strong>{player.finalGame}</p>
+
+                <table align="center">
+                    <thead>
+                    <tr>
+                        <th>SUMMARY</th>
+                        <th>WAR</th>
+                        <th>W</th>
+                        <th>L</th>
+                        <th>ERA</th>
+                        <th>G</th>
+                        <th>GS</th>
+                        <th>SV</th>
+                        <th>IP</th>
+                        <th>SO</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Career</td>
+                        <td>{pitching.WAR}</td>
+                        <td>{pitching.W}</td>
+                        <td>{pitching.L}</td>
+                        <td>{pitching.ERA}</td>
+                        <td>{pitching.G}</td>
+                        <td>{pitching.GS}</td>
+                        <td>{pitching.SV}</td>
+                        <td>{pitching.IP}</td>
+                        <td>{pitching.SO}</td>
+                    </tr>
+                    </tbody>
+                </table>
+
         
         </div>   
               
