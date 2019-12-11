@@ -1,0 +1,58 @@
+var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+var collectionName = 'Batting2019'
+
+var Batting2019Schema = new mongoose.Schema({
+    _id : { type: Number, default: ''},
+    playerID: { type: String},
+    Rk: { type: Number, default: ''},
+    nameFirst: { type: String},
+    nameLast: { type: String},
+    bats: { type: String},
+    throws: {type: String},
+    age: { type: Number},
+    year: { type: Number},
+    stints: { type: Number},
+    teamID: { type: String},
+    lg: { type: String },
+    G: { type: Number, default: ''},
+    tap: { type: Number, default: ''},
+    AB: { type: Number, default: ''},
+    R: { type: Number, default: ''},
+    H: { type: Number, default: ''},
+    db: { type: Number, default: ''},
+    tr: { type: Number, default: ''},
+    HR: { type: Number, default: ''},
+    RBI: { type: Number, default: ''},
+    SB: { type: Number, default: ''},
+    CS: { type: Number, default: ''},
+    BB: { type: Number, default: ''},
+    SO: { type: Number, default: ''},
+    IBB: { type: Number, default: ''},
+    hpb: { type: Number, default: ''},
+    SH: { type: Number, default: ''},
+    GIDP: { type: Number, default: ''},
+    avg: { type: Number, default: ''},
+    obp: { type: Number, default: ''},
+    slg: { type: Number, default: ''},
+    woba: { type: Number, default: ''},
+    PRO: { type: Number, default: ''},
+    GURU: { type: Number, default: ''},
+    ROTO: { type: Number, default: ''},
+    pos1: { type: String, default: ''},
+    g1: { type: Number, default: ''},
+    pos2: { type: String, default: ''},
+    g2: { type: Number, default: ''},
+    pos3: { type: String, default: ''},
+    g3: { type: Number, default: ''},
+    pos4: { type: String, default: ''},
+    g4: { type: Number, default: ''},
+    pos5: { type: String, default: ''},
+    g5: { type: Number, default: ''},
+    mlbam_id: { type: Number, default: ''},
+    baseball_prospectus_id: { type: String, default: ''},
+    n2019: { type: String, default: ''}
+
+});
+
+module.exports = mongoose.model('Batting2019', Batting2019Schema, collectionName)

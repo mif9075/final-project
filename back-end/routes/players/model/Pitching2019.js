@@ -1,0 +1,58 @@
+var mongoose = require('mongoose');
+const Schema = mongoose.Schema;
+var collectionName = 'Pitching2019'
+
+var Pitching2019Schema = new mongoose.Schema({
+    _id : { type: Number, default: ''},
+    playerID: { type: String},
+    nameFirst: { type: String},
+    nameLast: { type: String},
+    throws: { type: String},
+    age: { type: Number, default: ''},
+    year: { type: Number, default: ''},
+    stints: { type: Number, default: ''},
+    teamID: { type: String, default: ''},
+    LG: { type: String, default: ''},
+    POS1: { type: String, default: ''},
+    W: { type: Number, default: ''},
+    L: { type: Number, default: ''},
+    CG: {type: Number, default: ''},
+    ShO: {type: Number, default: ''},
+    GP: { type: Number, default: ''},
+    GS: {type: Number, default: ''},
+    SV: {type: Number, default: ''},
+    GF: {type: Number, default: ''},
+    IPOUts: {type: Number, default: ''},
+    IP: {type: Number, default: ''},
+    ERA: {type: String, default: ''},
+    HA: {type: Number, default: ''},
+    ER: {type: Number, default: ''},
+    HRA: {type: Number, default: ''},
+    BBA: {type: Number, default: ''},
+    SOA: {type: Number, default: ''},
+    IBBA: {type: Number, default: ''},
+    WP: { type: Number, default: ''},
+    HPBA: { type: Number, default: ''},
+    BK: { type: Number, default: ''},
+    BFP: { type: Number, default: ''},
+    RA: { type: Number, default: ''},
+    CMD: { type: String},
+    DOM: { type: String},
+    CTL: { type: String},
+    HR9: { type: String},
+    WHIP: { type: String},
+    WRIP: { type: String},
+    HGRBIB: { type: String},
+    RAVG: { type: String },
+    FIP: { type: String},
+    DERA: { type: Number, default: ''},
+    STUFF: { type: String},
+    GURU: { type: String},
+    ROTO: { type: String},
+    mlbam_id: { type: Number},
+    baseball_prospectus_id: { type: String},
+    n2019: { type: String}
+
+});
+
+module.exports = mongoose.model('Pitching2019', Pitching2019Schema, collectionName)
