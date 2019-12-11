@@ -121,7 +121,6 @@ class SeePlayer extends Component {
                     <thead>
                     <tr>
                         <th>SUMMARY</th>
-                        <th>WAR</th>
                         <th>AB</th>
                         <th>H</th>
                         <th>HR</th>
@@ -132,6 +131,7 @@ class SeePlayer extends Component {
                         <th>OBP</th>
                         <th>SLG</th>
                         <th>OPS</th>
+                        <th>WAR</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -151,7 +151,7 @@ class SeePlayer extends Component {
                     </tr>
                     <tr>
                         <td>Career</td>
-                        <td>{baseball.WAR}</td>
+                        
                         <td>{baseball.AB}</td>
                         <td>{baseball.H}</td>
                         <td>{baseball.HR}</td>
@@ -162,6 +162,8 @@ class SeePlayer extends Component {
                         <td>{baseball.OBP}</td>
                         <td>{baseball.SLG}</td>
                         <td>{baseball.OPS}</td>
+                        <td>{baseball.WAR}</td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -206,7 +208,7 @@ class SeePlayer extends Component {
                     <thead>
                     <tr>
                         <th>SUMMARY</th>
-                        <th>WAR</th>
+                        
                         <th>W</th>
                         <th>L</th>
                         <th>ERA</th>
@@ -215,12 +217,14 @@ class SeePlayer extends Component {
                         <th>SV</th>
                         <th>IP</th>
                         <th>SO</th>
+                        <th>WAR</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>Career</td>
-                        <td>{pitching.WAR}</td>
+                        
                         <td>{pitching.W}</td>
                         <td>{pitching.L}</td>
                         <td>{pitching.ERA}</td>
@@ -229,6 +233,8 @@ class SeePlayer extends Component {
                         <td>{pitching.SV}</td>
                         <td>{pitching.IP}</td>
                         <td>{pitching.SO}</td>
+                        <td>{pitching.WAR}</td>
+
                     </tr>
                     </tbody>
                 </table>
@@ -266,7 +272,7 @@ class SeePlayer extends Component {
                     <thead>
                     <tr>
                         <th>SUMMARY</th>
-                        <th>WAR</th>
+                        
                         <th>AB</th>
                         <th>H</th>
                         <th>HR</th>
@@ -277,12 +283,14 @@ class SeePlayer extends Component {
                         <th>OBP</th>
                         <th>SLG</th>
                         <th>OPS</th>
+                        <th>WAR</th>
+
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>Career</td>
-                        <td>{baseball.WAR}</td>
+                        
                         <td>{baseball.AB}</td>
                         <td>{baseball.H}</td>
                         <td>{baseball.HR}</td>
@@ -293,6 +301,8 @@ class SeePlayer extends Component {
                         <td>{baseball.OBP}</td>
                         <td>{baseball.SLG}</td>
                         <td>{baseball.OPS}</td>
+                        <td>{baseball.WAR}</td>
+
                     </tr>
                     </tbody>
                 </table>
