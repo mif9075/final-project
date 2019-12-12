@@ -12,6 +12,8 @@ class SeePlayer extends Component {
     baseball: '',
     position: '',
     pitching: '',
+    batting2019: '',
+    pitching2019: '',
   }
 
   componentDidMount() {
@@ -31,7 +33,9 @@ class SeePlayer extends Component {
                     mlb: data[0].mlb_id[0],
                     baseball: data[0].baseball_id[0],
                     position: data[0].baseball_id[0].Pos,
-                    pitching: data[0].pitching_id[0]
+                    pitching: data[0].pitching_id[0],
+                    pitching2019: data[0].pitching2019[0],
+                    batting2019: data[0].batting2019[0]
                     
                   })
                 })
@@ -44,13 +48,16 @@ class SeePlayer extends Component {
 
   render() {
    
-    const { player, isFetching, mlb, baseball, position, pitching } = this.state
+    const { player, isFetching, mlb, baseball, position, pitching, batting2019, pitching2019 } = this.state
 
     // console.log(baseball)
 
-    console.log(position)
-// 
-    console.log(pitching)
+    // console.log(position)
+
+    // console.log(pitching)
+
+    console.log(batting2019)
+    console.log(pitching2019)
 
     let date = new Date(player.finalGame);
 
@@ -67,7 +74,7 @@ class SeePlayer extends Component {
             playerInfo = (
                 <div className='App'>
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-            <p>Active Player : Need 2019 Pitcher Information</p>
+                    <p><strong>Active Player</strong></p>
             <p>MLB ID: {mlb.mlb_id}</p>
         <p><strong>Position:{mlb.mlb_pos}</strong></p>
         <p><strong>MLB Team:{mlb.mlb_team_long}</strong></p>
@@ -87,6 +94,56 @@ class SeePlayer extends Component {
             <p><strong>Debut:</strong>{player.debut}</p>
     
             <p><strong>Last Game:</strong>Active Player</p>
+
+
+            <table align="center">
+                    <thead>
+                    <tr>
+                        <th>SUMMARY</th>
+                        
+                        <th>W</th>
+                        <th>L</th>
+                        <th>ERA</th>
+                        <th>G</th>
+                        <th>GS</th>
+                        <th>SV</th>
+                        <th>IP</th>
+                        <th>SO</th>
+                        <th>WAR</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>2019</td>
+                        <td>{pitching2019.W}</td>
+                        <td>{pitching2019.L}</td>
+                        <td>{pitching2019.ERA}</td>
+                        <td>{pitching2019.GP}</td>
+                        <td>{pitching2019.GS}</td>
+                        <td>{pitching2019.SV}</td>
+                        <td>{pitching2019.IP}</td>
+                        <td>{pitching2019.SOA}</td>
+                        <td></td>
+                        
+                    </tr>
+                    <tr>
+                        <td>Career</td>
+                        
+                        <td>{pitching.W}</td>
+                        <td>{pitching.L}</td>
+                        <td>{pitching.ERA}</td>
+                        <td>{pitching.G}</td>
+                        <td>{pitching.GS}</td>
+                        <td>{pitching.SV}</td>
+                        <td>{pitching.IP}</td>
+                        <td>{pitching.SO}</td>
+                        <td>{pitching.WAR}</td>
+
+                    </tr>
+                    </tbody>
+                </table>
+
             </div>
             )
 
@@ -96,7 +153,7 @@ class SeePlayer extends Component {
             playerInfo = (
                 <div className='App'>
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-            <p>Active Player : Need 2019 Batter Information</p>
+            <p><strong>Active Player</strong></p>
             <p>MLB ID: {mlb.mlb_id}</p>
         <p><strong>Position:{mlb.mlb_pos}</strong></p>
         <p><strong>MLB Team:{mlb.mlb_team_long}</strong></p>
@@ -137,16 +194,16 @@ class SeePlayer extends Component {
                     <tbody>
                     <tr>
                         <td>2019</td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                        <td>{batting2019.AB}</td>
+                        <td>{batting2019.H}</td>
+                        <td>{batting2019.HR}</td>
+                        <td>{batting2019.avg.toFixed(3)}</td>
+                        <td>{batting2019.R}</td>
+                        <td>{batting2019.RBI}</td>
+                        <td>{batting2019.SB}</td>
+                        <td>{batting2019.obp.toFixed(3)}</td>
+                        <td>{batting2019.slg.toFixed(3)}</td>
+                        <td>{(batting2019.obp + batting2019.slg).toFixed(3)}</td>
                         <td></td>
                     </tr>
                     <tr>
@@ -186,6 +243,7 @@ class SeePlayer extends Component {
                 <div className='App'>
                     
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+                    <p><strong>Retired Player</strong></p>
                 <p><strong>Position: Pitcher</strong></p>
                 <p><strong>Bats: </strong>{player.bats}
                 &nbsp;•&nbsp;
@@ -250,6 +308,7 @@ class SeePlayer extends Component {
                 <div className='App'>
                     
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
+                    <p><strong>Active Player</strong></p>
                 <p><strong>Position:Batter</strong></p>
                 <p><strong>Bats: </strong>{player.bats}
                 &nbsp;•&nbsp;
