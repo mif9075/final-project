@@ -63,34 +63,34 @@ class SeePlayer extends Component {
     switch (position[pos2]) {
 
         case '1': 
-            pos = "Pitcher";
+            pos = "P";
             break;
         case '2':
-            pos = "Catcher";
+            pos = "C";
             break;
         case '3':
-            pos = "First Baseman";
+            pos = "1B";
             break;
         case '4': 
-            pos = "Second Baseman";
+            pos = "2B";
             break;
         case '5': 
-            pos = "Third Baseman"
+            pos = "3B"
             break;
         case '6':
-            pos = "Shortstop";
+            pos = "SS";
             break;
         case '7':
-            pos = "Left Fielder";
+            pos = "LF";
             break;
         case '8':
-            pos = "Center Fielder";
+            pos = "CF";
             break;
         case '9':
-            pos = "Right Fielder";
+            pos = "RF";
             break;
         default: 
-            pos = "Designated Hitter"
+            pos = "DH"
             break;
     }
 
