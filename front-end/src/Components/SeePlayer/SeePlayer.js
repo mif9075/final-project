@@ -52,11 +52,11 @@ class SeePlayer extends Component {
 
     // console.log(baseball)
 
-    console.log(position)
+    // console.log(position)
 
     let pos2 = position.search(/\d/)
 
-    console.log(position[pos2])
+    // console.log(position[pos2])
 
     let pos = "";
 
@@ -94,14 +94,14 @@ class SeePlayer extends Component {
             break;
     }
 
-    console.log(pos)
+    // console.log(pos)
 
 
     // console.log(pitching)
 
    
-    console.log(batting2019)
-    console.log(pitching2019)
+    // console.log(batting2019)
+    // console.log(pitching2019)
 
     let date = new Date(player.finalGame);
 

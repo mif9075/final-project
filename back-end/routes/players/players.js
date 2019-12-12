@@ -10,6 +10,6 @@ router.get('/', function(req, res, next) {
 
 router.get('/get-all-players', passport.authenticate('jwt', { session: false }),  playersController.getAllPlayers);
 
-router.get('/get-all-players-info', playersController.getAllPlayersInfo)
+// router.get('/get-all-players-info', playersController.getAllPlayersInfo)
 
 module.exports = router;
