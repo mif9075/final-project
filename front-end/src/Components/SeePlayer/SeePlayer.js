@@ -52,10 +52,54 @@ class SeePlayer extends Component {
 
     // console.log(baseball)
 
-    // console.log(position)
+    console.log(position)
+
+    let pos2 = position.search(/\d/)
+
+    console.log(position[pos2])
+
+    let pos = "";
+
+    switch (position[pos2]) {
+
+        case '1': 
+            pos = "Pitcher";
+            break;
+        case '2':
+            pos = "Catcher";
+            break;
+        case '3':
+            pos = "First Baseman";
+            break;
+        case '4': 
+            pos = "Second Baseman";
+            break;
+        case '5': 
+            pos = "Third Baseman"
+            break;
+        case '6':
+            pos = "Shortstop";
+            break;
+        case '7':
+            pos = "Left Fielder";
+            break;
+        case '8':
+            pos = "Center Fielder";
+            break;
+        case '9':
+            pos = "Right Fielder";
+            break;
+        default: 
+            pos = "Designated Hitter"
+            break;
+    }
+
+    console.log(pos)
+
 
     // console.log(pitching)
 
+   
     console.log(batting2019)
     console.log(pitching2019)
 
@@ -237,7 +281,7 @@ class SeePlayer extends Component {
         // let pos = baseball.Pos;
         // console.log(baseball)
         
-        if (position.includes('1')) {
+        if (position.includes('*1') || position.includes('/1') || position === 1) {
 
             playerInfo = (
                 <div className='App'>
@@ -309,7 +353,7 @@ class SeePlayer extends Component {
                     
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
                     <p><strong>Active Player</strong></p>
-                <p><strong>Position:Batter</strong></p>
+            <p><strong>Position:{pos}</strong></p>
                 <p><strong>Bats: </strong>{player.bats}
                 &nbsp;•&nbsp;
                 <strong>Throws: </strong>{player.throws}</p>
