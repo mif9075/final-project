@@ -14,6 +14,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users/users');
 var playerRouter = require('./routes/player/player')
 var playersRouter = require('./routes/players/players');
+var postsRouter = require('./routes/posts/posts');
+
 
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
     .then(()=> console.log('MONGODB CONNECTED'))
@@ -38,6 +40,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/player', playerRouter);
 app.use('/players', playersRouter);
+app.use('/posts', postsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
