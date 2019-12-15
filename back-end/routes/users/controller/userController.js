@@ -1,4 +1,5 @@
 const authHelper = require('./authHelper');
+const User = require('../model/User');
 
 module.exports = {
     register: async (req,res) => {
@@ -55,5 +56,107 @@ module.exports = {
                 message: error
             });
         }
+    },
+
+    users: async (req, res) => {
+        const users = await User.find();
+        res.status(200).json(users);
+    },
+
+    user: async (req, res) => {
+        const { id } = req.params;
+
+        try {
+            const user = await User.findById(id);
+            if(user) {
+                res.json({ user });
+            } else {
+                res.status(404).json({ message: 'User not found'});
+            }
+        } catch (err) {
+            res.status(500).json({ err });
+        }
+    },
+
+    unfollowing: async (req, res) => {
+        const { id } = req.params;
+
+        if (!req.body.idToUnfollow) {
+            return res.status(404).json({ message: 'No ID found' });
+        }
+
+        try {
+            await User.findByIdAndUpdate(
+                id, 
+                { $pull: { following: req.body.idToUnfollow } },
+                { new: true, upsert: true },
+                (err, doc) => {
+                    if (err) {
+                        return res.status(400).json(error);
+                    }
+                    return res.status(200).json(doc);
+                }
+            );
+            } catch (e) {
+                return res.status(500).json(err);
+            }
+    },
+
+    followers: async (req, res) => {
+        const { id } = req.params;
+
+        if (!req.body.followerId) {
+            return res.status(404).json({ message: 'No ID found' });
+        }
+
+        try {
+            await User.findByIdAndUpdate(
+                id, 
+                { $addToSet: { followers: req.body.followerId } },
+                { new: true, upsert: true },
+                (err, doc) => {
+                    if (err) {
+                        return res.status(400).json(error);
+                    }
+                    return res.status(200).json(doc);
+                }
+            );
+            } catch (e) {
+                return res.status(500).json(err);
+            }
+    },
+
+    unfollowers: async (req, res) => {
+        const { id } = req.params;
+
+        if (!req.body.unfollowerId) {
+            return res.status(404).json({ message: 'No ID found' });
+        }
+
+        try {
+            await User.findByIdAndUpdate(
+                id, 
+                { $pull: { followers: req.body.unfollowerId } },
+                { new: true, upsert: true },
+                (err, doc) => {
+                    if (err) {
+                        return res.status(400).json(error);
+                    }
+                    return res.status(200).json(doc);
+                }
+            );
+            } catch (e) {
+                return res.status(500).json(err);
+            }
+    },
+
+    delete: async ( req, res) => {
+        try {
+            await User.remove({_id: req.params.id }).exec();
+            res.status(200).json({ message: 'Successfully deleted user.'});
+        } catch (err) {
+            res.status(500).json({ message: err});
+        }
     }
+
 }
