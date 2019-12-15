@@ -6,6 +6,7 @@ import playersReducer from './playersReducer'
 import playerReducer from'./playerReducer'
 import searchReducer from './searchReducer'
 import postsReducer from './postsReducer';
+import userReducer from './userReducer'
 
 export default combineReducers({
     authUser: authReducer,
@@ -13,5 +14,6 @@ export default combineReducers({
     players: playersReducer,
     player: playerReducer,
     search: searchReducer,
-    posts: postsReducer
+    posts: postsReducer,
+    user: userReducer
 });

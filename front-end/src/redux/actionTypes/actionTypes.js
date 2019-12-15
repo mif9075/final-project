@@ -33,9 +33,16 @@ export const GET_POSTS = 'GET_POSTS';
 export const LIKE_POST = 'LIKE_POSTS';
 export const UPDATE_POST_LIKES = 'UPDATE_POST_LIKES';
 
-//commentActions
+// commentActions
 export const ADD_COMMENT = 'ADD_COMMENT';
 export const EDIT_COMMENT = 'EDIT_COMMENT';
 export const DELETE_COMMENT = 'DELETE_COMMENT';
-export const GET_COMMENTS = 'GET_COMMENTS'
+export const GET_COMMENTS = 'GET_COMMENTS';
 
+// userActions
+export const GET_FOLLOWERS = 'GET_FOLLOWERS';
+export const GET_FOLLOWING = 'GET_FOLLOWING';
+export const GET_ALL_USERS = 'GET_ALL_USERS';
+export const GET_USER = 'GET_USER';
+export const UPDATE_FOLLOWERS = 'UPDATE_FOLLOWERS';
+export const UPDATE_FOLLOWING = 'UPDATE_FOLLOWING';
