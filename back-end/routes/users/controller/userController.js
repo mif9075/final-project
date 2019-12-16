@@ -44,6 +44,33 @@ module.exports = {
         }
     },
 
+    // update: async (req, res) => {
+    //     const { id } = req.params;
+
+    //     try {
+    //         const user = await User.findOneAndUpdate(
+    //             { _id: id },
+    //             {
+    //                 $set: {
+    //                     email: req.body.email,
+    //                     username: req.body.username
+    //                 }
+    //             },
+    //             { new: true, upsert: true, setDefaultsOnInsert: true },
+    //             (err) => {
+    //                 if (err !=null && err.name ==='MongoError' && err.code === 11000){
+    //                     return res 
+    //                     .status(500)
+    //                     .send({message: 'This email is already in use.' });
+    //                 }
+    //             }
+    //         );
+    //         if (!user) {
+    //             return res.status(404).json({ message: 'User not found.' });
+    //         }
+    //     }
+    // },
+
     search: async (req, res) => {
         // console.log(req)
         try {
@@ -76,6 +103,30 @@ module.exports = {
         } catch (err) {
             res.status(500).json({ err });
         }
+    },
+
+    following: async (req, res) => {
+        const { id } = req.params;
+
+        if (!req.body.idToFollow) {
+            return res.status(404).json({ message: 'No ID found' });
+        }
+
+        try {
+            await User.findByIdAndUpdate(
+                id, 
+                { $addToset: { following: req.body.idToFollow } },
+                { new: true, upsert: true },
+                (err, doc) => {
+                    if (err) {
+                        return res.status(400).json(error);
+                    }
+                    return res.status(200).json(doc);
+                }
+            );
+            } catch (e) {
+                return res.status(500).json(err);
+            }
     },
 
     unfollowing: async (req, res) => {

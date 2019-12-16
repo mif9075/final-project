@@ -7,9 +7,12 @@ router.get('/', function(req, res, next) {
   res.send('Users Route');
 });
 
+
 router.get('/users', userController.users);
 
 router.get('/user/:id', userController.user);
+
+router.patch('/following/:id', userController.following);
 
 router.patch('/unfollowing/:id', userController.unfollowing);
 
@@ -18,6 +21,8 @@ router.patch('/followers/:id', userController.followers);
 router.patch('/unfollowers/:id', userController.unfollowers);
 
 router.delete('/delete/:id', userController.delete);
+
+
 
 router.post('/register', userController.register);
 
