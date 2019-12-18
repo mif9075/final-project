@@ -44,32 +44,9 @@ module.exports = {
         }
     },
 
-    // update: async (req, res) => {
-    //     const { id } = req.params;
-
-    //     try {
-    //         const user = await User.findOneAndUpdate(
-    //             { _id: id },
-    //             {
-    //                 $set: {
-    //                     email: req.body.email,
-    //                     username: req.body.username
-    //                 }
-    //             },
-    //             { new: true, upsert: true, setDefaultsOnInsert: true },
-    //             (err) => {
-    //                 if (err !=null && err.name ==='MongoError' && err.code === 11000){
-    //                     return res 
-    //                     .status(500)
-    //                     .send({message: 'This email is already in use.' });
-    //                 }
-    //             }
-    //         );
-    //         if (!user) {
-    //             return res.status(404).json({ message: 'User not found.' });
-    //         }
-    //     }
-    // },
+    update: async (req, res) => {
+                
+    },
 
     search: async (req, res) => {
         // console.log(req)

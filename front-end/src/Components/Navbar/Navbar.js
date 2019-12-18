@@ -100,11 +100,11 @@ class PrimarySearchAppBar extends React.Component {
         submitted: false,
     }
 
-    componentDidMount() {
-        if (this.props.authUser.isAuthenticated) {
-            this.props.history.push('/')
-        }
-    }
+    // componentDidMount() {
+    //     if (this.props.authUser.isAuthenticated) {
+    //         this.props.history.push('/')
+    //     }
+    // }
 
     handleChange = (e) => {
       
