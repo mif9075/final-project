@@ -352,7 +352,7 @@ class SeePlayer extends Component {
                 <div className='App'>
                     
                     <h1 itemProp="name">{player.nameFirst + ' ' + player.nameLast}</h1>
-                    <p><strong>Active Player</strong></p>
+                    <p><strong>Retire Player</strong></p>
             <p><strong>Position:{pos}</strong></p>
                 <p><strong>Bats: </strong>{player.bats}
                 &nbsp;•&nbsp;
