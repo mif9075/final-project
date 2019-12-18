@@ -7,21 +7,21 @@ router.get('/', function(req, res, next) {
   res.send('Users Route');
 });
 
-router.get('/users', userController.users);
+// router.get('/users', userController.users);
 
-router.get('/user/:id', userController.user);
+// router.get('/user/:id', userController.user);
 
-router.patch('/following/:id', userController.following);
+// router.patch('/following/:id', userController.following);
 
-router.patch('/unfollowing/:id', userController.unfollowing);
+// router.patch('/unfollowing/:id', userController.unfollowing);
 
-router.patch('/followers/:id', userController.followers);
+// router.patch('/followers/:id', userController.followers);
 
-router.patch('/unfollowers/:id', userController.unfollowers);
+// router.patch('/unfollowers/:id', userController.unfollowers);
 
-router.patch('/update/:id', userController.update);
+// router.patch('/update/:id', userController.update);
 
-router.delete('/delete/:id', userController.delete);
+// router.delete('/delete/:id', userController.delete);
 
 
 

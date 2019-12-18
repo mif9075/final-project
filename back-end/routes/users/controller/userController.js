@@ -44,10 +44,6 @@ module.exports = {
         }
     },
 
-    update: async (req, res) => {
-                
-    },
-
     search: async (req, res) => {
         // console.log(req)
         try {
@@ -62,129 +58,129 @@ module.exports = {
         }
     },
 
-    users: async (req, res) => {
-        const users = await User.find();
-        res.status(200).json(users);
-    },
+    // users: async (req, res) => {
+    //     const users = await User.find();
+    //     res.status(200).json(users);
+    // },
 
-    user: async (req, res) => {
-        const { id } = req.params;
+    // user: async (req, res) => {
+    //     const { id } = req.params;
 
-        try {
-            const user = await User.findById(id);
-            if(user) {
-                res.json({ user });
-            } else {
-                res.status(404).json({ message: 'User not found'});
-            }
-        } catch (err) {
-            res.status(500).json({ err });
-        }
-    },
+    //     try {
+    //         const user = await User.findById(id);
+    //         if(user) {
+    //             res.json({ user });
+    //         } else {
+    //             res.status(404).json({ message: 'User not found'});
+    //         }
+    //     } catch (err) {
+    //         res.status(500).json({ err });
+    //     }
+    // },
 
-    following: async (req, res) => {
-        const { id } = req.params;
+    // following: async (req, res) => {
+    //     const { id } = req.params;
 
-        if (!req.body.idToFollow) {
-            return res.status(404).json({ message: 'No ID found' });
-        }
+    //     if (!req.body.idToFollow) {
+    //         return res.status(404).json({ message: 'No ID found' });
+    //     }
 
-        try {
-            await User.findByIdAndUpdate(
-                id, 
-                { $addToset: { following: req.body.idToFollow } },
-                { new: true, upsert: true },
-                (err, doc) => {
-                    if (err) {
-                        return res.status(400).json(error);
-                    }
-                    return res.status(200).json(doc);
-                }
-            );
-            } catch (e) {
-                return res.status(500).json(err);
-            }
-    },
+    //     try {
+    //         await User.findByIdAndUpdate(
+    //             id, 
+    //             { $addToset: { following: req.body.idToFollow } },
+    //             { new: true, upsert: true },
+    //             (err, doc) => {
+    //                 if (err) {
+    //                     return res.status(400).json(error);
+    //                 }
+    //                 return res.status(200).json(doc);
+    //             }
+    //         );
+    //         } catch (e) {
+    //             return res.status(500).json(err);
+    //         }
+    // },
 
-    unfollowing: async (req, res) => {
-        const { id } = req.params;
+    // unfollowing: async (req, res) => {
+    //     const { id } = req.params;
 
-        if (!req.body.idToUnfollow) {
-            return res.status(404).json({ message: 'No ID found' });
-        }
+    //     if (!req.body.idToUnfollow) {
+    //         return res.status(404).json({ message: 'No ID found' });
+    //     }
 
-        try {
-            await User.findByIdAndUpdate(
-                id, 
-                { $pull: { following: req.body.idToUnfollow } },
-                { new: true, upsert: true },
-                (err, doc) => {
-                    if (err) {
-                        return res.status(400).json(error);
-                    }
-                    return res.status(200).json(doc);
-                }
-            );
-            } catch (e) {
-                return res.status(500).json(err);
-            }
-    },
+    //     try {
+    //         await User.findByIdAndUpdate(
+    //             id, 
+    //             { $pull: { following: req.body.idToUnfollow } },
+    //             { new: true, upsert: true },
+    //             (err, doc) => {
+    //                 if (err) {
+    //                     return res.status(400).json(error);
+    //                 }
+    //                 return res.status(200).json(doc);
+    //             }
+    //         );
+    //         } catch (e) {
+    //             return res.status(500).json(err);
+    //         }
+    // },
 
-    followers: async (req, res) => {
-        const { id } = req.params;
+    // followers: async (req, res) => {
+    //     const { id } = req.params;
 
-        if (!req.body.followerId) {
-            return res.status(404).json({ message: 'No ID found' });
-        }
+    //     if (!req.body.followerId) {
+    //         return res.status(404).json({ message: 'No ID found' });
+    //     }
 
-        try {
-            await User.findByIdAndUpdate(
-                id, 
-                { $addToSet: { followers: req.body.followerId } },
-                { new: true, upsert: true },
-                (err, doc) => {
-                    if (err) {
-                        return res.status(400).json(error);
-                    }
-                    return res.status(200).json(doc);
-                }
-            );
-            } catch (e) {
-                return res.status(500).json(err);
-            }
-    },
+    //     try {
+    //         await User.findByIdAndUpdate(
+    //             id, 
+    //             { $addToSet: { followers: req.body.followerId } },
+    //             { new: true, upsert: true },
+    //             (err, doc) => {
+    //                 if (err) {
+    //                     return res.status(400).json(error);
+    //                 }
+    //                 return res.status(200).json(doc);
+    //             }
+    //         );
+    //         } catch (e) {
+    //             return res.status(500).json(err);
+    //         }
+    // },
 
-    unfollowers: async (req, res) => {
-        const { id } = req.params;
+    // unfollowers: async (req, res) => {
+    //     const { id } = req.params;
 
-        if (!req.body.unfollowerId) {
-            return res.status(404).json({ message: 'No ID found' });
-        }
+    //     if (!req.body.unfollowerId) {
+    //         return res.status(404).json({ message: 'No ID found' });
+    //     }
 
-        try {
-            await User.findByIdAndUpdate(
-                id, 
-                { $pull: { followers: req.body.unfollowerId } },
-                { new: true, upsert: true },
-                (err, doc) => {
-                    if (err) {
-                        return res.status(400).json(error);
-                    }
-                    return res.status(200).json(doc);
-                }
-            );
-            } catch (e) {
-                return res.status(500).json(err);
-            }
-    },
+    //     try {
+    //         await User.findByIdAndUpdate(
+    //             id, 
+    //             { $pull: { followers: req.body.unfollowerId } },
+    //             { new: true, upsert: true },
+    //             (err, doc) => {
+    //                 if (err) {
+    //                     return res.status(400).json(error);
+    //                 }
+    //                 return res.status(200).json(doc);
+    //             }
+    //         );
+    //         } catch (e) {
+    //             return res.status(500).json(err);
+    //         }
+    // },
 
-    delete: async ( req, res) => {
-        try {
-            await User.remove({_id: req.params.id }).exec();
-            res.status(200).json({ message: 'Successfully deleted user.'});
-        } catch (err) {
-            res.status(500).json({ message: err});
-        }
-    }
+    // delete: async ( req, res) => {
+    //     try {
+    //         await User.remove({_id: req.params.id }).exec();
+    //         res.status(200).json({ message: 'Successfully deleted user.'});
+    //     } catch (err) {
+    //         res.status(500).json({ message: err});
+    //     }
+    // }
 
 }
