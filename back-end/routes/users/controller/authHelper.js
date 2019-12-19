@@ -3,6 +3,8 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const People = require('../../players/model/People');
 
+const Baseball = require('../../players/model/Baseball');
+
 async function hashPassword(password) {
     let genSalt = await bcrypt.genSalt(10);
     let hashedPassword = await bcrypt.hash(password, genSalt);
@@ -73,6 +75,9 @@ async function finder(search) {
         // console.log(foundNameLast)
         let foundBirthCity = await People.find({birthCity: search});
         // console.log(foundBirthCity)
+        let foundNameGiven = await Baseball.find({Name: search})
+        console.log(foundNameGiven)
+
 
         if (foundNameFirst.length !== 0) {
             return foundNameFirst
@@ -80,7 +85,10 @@ async function finder(search) {
             return foundNameLast
         } else if (foundBirthCity.length !== 0){
             return foundBirthCity
-        } else {
+        } else if (foundNameGiven.length !== 0){
+            return foundNameGiven
+        }
+            else {
             return 404;
         }
     } catch (error) {
